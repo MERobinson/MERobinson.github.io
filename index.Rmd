@@ -1,0 +1,26 @@
+--- 
+title: "Intro to RNA-seq analysis for wet-lab scientists"
+author: "Mark Robinson"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [packages.bib]
+biblio-style: apalike
+link-citations: yes
+---
+
+# Introduction
+
+This session is designed to quickly familiarise wet-lab scientists with the basic concepts and common practices for RNA-seq analysis. It covers basic command line interaction, sequence QC, quantification and visualisation. This is a lot to take in all at once but all this information will remain available on this site to go over at your own pace. Additional resources are linked towards the end for anyone wanting to go into greater detail.
+
+## Contact
+
+If you have any questions drop me an email at my imperial address - m.robinson.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

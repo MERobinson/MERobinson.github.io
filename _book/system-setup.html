@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Intro to RNA-seq analysis for wet-lab scientists</title>
+  <meta name="description" content="Intro to RNA-seq analysis for wet-lab scientists">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Intro to RNA-seq analysis for wet-lab scientists" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Intro to RNA-seq analysis for wet-lab scientists" />
+  
+  
+  
+
+<meta name="author" content="Mark Robinson">
+
+
+<meta name="date" content="2017-08-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="system-setup.html"><a href="system-setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
+<li class="chapter" data-level="2.1" data-path="system-setup.html"><a href="system-setup.html#quick-start"><i class="fa fa-check"></i><b>2.1</b> Quick start</a></li>
+<li class="chapter" data-level="2.2" data-path="system-setup.html"><a href="system-setup.html#bio-linux"><i class="fa fa-check"></i><b>2.2</b> Bio-Linux</a></li>
+<li class="chapter" data-level="2.3" data-path="system-setup.html"><a href="system-setup.html#r"><i class="fa fa-check"></i><b>2.3</b> R</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="system-setup.html"><a href="system-setup.html#rstudio"><i class="fa fa-check"></i><b>2.3.1</b> RStudio</a></li>
+<li class="chapter" data-level="2.3.2" data-path="system-setup.html"><a href="system-setup.html#r-packages"><i class="fa fa-check"></i><b>2.3.2</b> R packages</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to RNA-seq analysis for wet-lab scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="system-setup" class="section level1">
+<h1><span class="header-section-number">2</span> System Setup</h1>
+<div id="quick-start" class="section level2">
+<h2><span class="header-section-number">2.1</span> Quick start</h2>
+<p>If you can’t be bothered reading simply do this:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.rstudio.com/products/rstudio/download/#download">click here</a></li>
+<li>open the file and click install</li>
+<li>open RStudio</li>
+<li>copy &amp; paste the following lines to the command line:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</code></pre></div>
+<p>For a bit more info keep reading…</p>
+</div>
+<div id="bio-linux" class="section level2">
+<h2><span class="header-section-number">2.2</span> Bio-Linux</h2>
+<p>Setting up your system with is often one of the most time consuming and frustrating parts of starting out in bioinformatics. To avoid the hassle we’ll be running <a href="http://environmentalomics.org/bio-linux/">Bio-Linux</a> from a USB stick. This provides you with a Linux workstation pre-setup with many common bioinformatic tools.</p>
+</div>
+<div id="r" class="section level2">
+<h2><span class="header-section-number">2.3</span> R</h2>
+<p>In addition to command line programs we’ll be using R to plot figures. R is a statistical programming language commonly used for down-stream statistical analysis and visualisation. R can be run from the command line, or using the popular user-interface <a href="https://www.rstudio.com/">RStudio</a>.</p>
+<div id="rstudio" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> RStudio</h3>
+<p>We’ll be using RStudio for the course, which isn’t pre-installed on Bio-Linux - so simply <a href="https://www.rstudio.com/products/rstudio/download/#download">click here</a> to download for the Bio-Linux system, open the file and install.</p>
+</div>
+<div id="r-packages" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> R packages</h3>
+<p>R packages</p>
+<p><a href="https://cran.r-project.org/web/packages/devtools/index.html">devtools</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</code></pre></div>
+<p><a href="http://bioconductor.org/packages/BiocInstaller">BiocInstaller</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&#39;https://bioconductor.org/biocLite.R&#39;</span>)
+<span class="kw">biocLite</span>(<span class="st">&#39;BiocInstaller&#39;</span>)</code></pre></div>
+<p><a href="https://bioconductor.org/packages/DESeq2">DESeq2</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;https://bioconductor.org/biocLite.R&quot;</span>)
+<span class="kw">biocLite</span>(<span class="st">&quot;DESeq2&quot;</span>)</code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
