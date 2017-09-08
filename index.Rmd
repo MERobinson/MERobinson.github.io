@@ -6,6 +6,8 @@ site: "bookdown::bookdown_site"
 output: 
   bookdown::gitbook:
     split_by: rmd
+  bookdown::html_book:
+    split_by: rmd
 documentclass: book
 bibliography: [packages.bib]
 biblio-style: apalike
