@@ -2,21 +2,13 @@
 title: "Introduction to RNAseq"
 author: "Mark Robinson"
 date: "`r Sys.Date()`"
-site: "bookdown::bookdown_site"
 output: 
   bookdown::gitbook:
-    split_by: rmd
-  bookdown::html_book:
     split_by: rmd
 documentclass: book
 bibliography: [packages.bib]
 biblio-style: apalike
 link-citations: yes
-#description: "This book introduces the ABC theory, and ..."
-#url: "https\://bookdown.org/john/awesome/"
-#github-repo: "john/awesome"
-#cover-image: "images/cover.png"
-
 ---
 
 # Preface {-}
