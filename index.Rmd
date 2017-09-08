@@ -1,22 +1,31 @@
 --- 
-title: "Intro to RNA-seq analysis for wet-lab scientists"
+title: "Introduction to RNAseq"
 author: "Mark Robinson"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-output: bookdown::gitbook
+site: "bookdown::bookdown_site"
+output: 
+  bookdown::gitbook:
+    split_by: rmd
 documentclass: book
 bibliography: [packages.bib]
 biblio-style: apalike
 link-citations: yes
+#description: "This book introduces the ABC theory, and ..."
+#url: "https\://bookdown.org/john/awesome/"
+#github-repo: "john/awesome"
+#cover-image: "images/cover.png"
+
 ---
 
-# Introduction
+# Preface {-}
 
-This session is designed to quickly familiarise wet-lab scientists with the basic concepts and common practices for RNA-seq analysis. It covers basic command line interaction, sequence QC, quantification and visualisation. This is a lot to take in all at once but all this information will remain available on this site to go over at your own pace. Additional resources are linked towards the end for anyone wanting to go into greater detail.
+The purpose of this tutorial is to introduce bioinformatics to complete beginners in a practical and accessible way. We'll cover from s. 
 
-## Contact
+This site will remain active if you want to go through it at your own pace and I'm planning to continue developing it to provide further depth and introduce other bioinformatics topics in the future. Hopefully this will prove a useful resource for the department, if you have any ideas/requests let me know!
 
-If you have any questions drop me an email at my imperial address - m.robinson.
+## Contact {-}
+
+Any questions drop me an email at my imperial address - m.robinson
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

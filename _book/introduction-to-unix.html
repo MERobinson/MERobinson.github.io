@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to bioinformatics for wet-lab scientists</title>
+  <meta name="description" content="Introduction to bioinformatics for wet-lab scientists">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to bioinformatics for wet-lab scientists" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to bioinformatics for wet-lab scientists" />
+  
+  
+  
+
+<meta name="author" content="Mark Robinson">
+
+
+<meta name="date" content="2017-08-25">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="system-setup.html">
+<link rel="next" href="public-data.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="system-setup.html"><a href="system-setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a></li>
+<li class="chapter" data-level="3" data-path="introduction-to-unix.html"><a href="introduction-to-unix.html"><i class="fa fa-check"></i><b>3</b> Introduction to UNIX</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-unix.html"><a href="introduction-to-unix.html#symbol-the-terminal"><i class="fa fa-check"></i><b>3.1</b> <img src="images/terminal_symbol_small.png" alt="symbol" /> The Terminal</a></li>
+<li class="chapter" data-level="3.2" data-path="introduction-to-unix.html"><a href="introduction-to-unix.html#the-filesystem"><i class="fa fa-check"></i><b>3.2</b> The filesystem</a></li>
+<li class="chapter" data-level="3.3" data-path="introduction-to-unix.html"><a href="introduction-to-unix.html#navigating-the-filesystem"><i class="fa fa-check"></i><b>3.3</b> Navigating the filesystem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="public-data.html"><a href="public-data.html"><i class="fa fa-check"></i><b>4</b> Public Data</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to bioinformatics for wet-lab scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-unix" class="section level1">
+<h1><span class="header-section-number">3</span> Introduction to UNIX</h1>
+<p>You actually don’t need to know barely anything about UNIX to run a simple analysis - only how to open a terminal, input commands and 3 basic commands. This section will run through these basics, if you want a more in-depth introduction see the section on shell scripting.</p>
+<div id="symbol-the-terminal" class="section level2">
+<h2><span class="header-section-number">3.1</span> <img src="images/terminal_symbol_small.png" alt="symbol" /> The Terminal</h2>
+<p>The <strong>terminal</strong> (AKA <strong>console</strong> or <strong>shell</strong>) is an environment where you can type commands that will be interpreted and run by your system. The terminal is on all unix systems by default so just search for ‘Terminal’ in your applications to open it. It should look something like this: <img src="images/terminal.png" alt="terminal" /></p>
+<p>The text (usually your username and current directory) followed by a dollar symbol <strong>$</strong> is called the prompt. The prompt starts each command line and indicates your terminal is ready to accept a command - if it’s not showing up it probably means your system is still processing the previous command.</p>
+<p>To run a process you simply type the command and press enter. Previous commands are stored and can be retrieved with the arrow buttons.</p>
+</div>
+<div id="the-filesystem" class="section level2">
+<h2><span class="header-section-number">3.2</span> The filesystem</h2>
+<p>Files are stored on unix in a tree-like structure of directories/folders.</p>
+<div class="figure">
+<img src="images/dir_tree.png" />
+
+</div>
+<p>The base of this tree is the <strong>root</strong> directory - represented by a forward slash <strong>/</strong>. The root directory contains all other directories and files.</p>
+<p>The location of any file is called it’s <strong>path</strong> and can be given by a series of directory names and seperated by forward slashes. e.g. the path of the file moo.txt in the filesystem diagrammed above would be /home/mark/moo.txt. An <strong>absolute path</strong> five the full path from the root directory, while a <strong>relative path</strong> gives the path relative to the current directory.</p>
+</div>
+<div id="navigating-the-filesystem" class="section level2">
+<h2><span class="header-section-number">3.3</span> Navigating the filesystem</h2>
+<p>It’s important to remember that the console has a location - you’re always in a directory of your filesystem. By default when you start the terminal you’ll be in your home directory - /home/username.</p>
+<p>You can print the directory your currently working in termed <strong>present working directory</strong> with the command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre></div>
+<p>To list files and directories in the current working directory, use the <strong>list</strong> command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span></code></pre></div>
+<p>To move to a different directory use the <strong>change directory</strong> command followed by the path to the new location. E.g. in the filesystem diagrammed above you could move to the home directory by typing:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> /home</code></pre></div>
+<p>You can also use relative paths - if you were in home and wanted to move to Documents just type:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> Documents</code></pre></div>
+<p>There are a number of symbols with special meanings:</p>
+<ul>
+<li><em>/</em> means root directory</li>
+<li><em>~</em> means the users home directory</li>
+<li><em>.</em> means current directory</li>
+<li><em>..</em> means directory up from the current one</li>
+</ul>
+<p>So to change from Documents to bin you could type either:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ../bin</code></pre></div>
+<p>or</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/bin</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="system-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="public-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

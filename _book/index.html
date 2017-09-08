@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Intro to RNA-seq analysis for wet-lab scientists</title>
-  <meta name="description" content="Intro to RNA-seq analysis for wet-lab scientists">
+  <title>Introduction to RNAseq</title>
+  <meta name="description" content="Introduction to RNAseq">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Intro to RNA-seq analysis for wet-lab scientists" />
+  <meta property="og:title" content="Introduction to RNAseq" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Intro to RNA-seq analysis for wet-lab scientists" />
+  <meta name="twitter:title" content="Introduction to RNAseq" />
   
   
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Mark Robinson">
 
 
-<meta name="date" content="2017-08-21">
+<meta name="date" content="2017-09-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 
-<link rel="next" href="system-setup.html">
+<link rel="next" href="01.1_setup.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,6 +49,43 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 </head>
 
@@ -62,10 +99,13 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.1</b> Contact</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="system-setup.html"><a href="system-setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a></li>
+<li class="chapter" data-level="1" data-path="01.1_setup.html"><a href="01.1_setup.html"><i class="fa fa-check"></i><b>1</b> System Setup</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_setup.html"><a href="01.1_setup.html#r"><i class="fa fa-check"></i><b>1.0.1</b> R</a></li>
+<li class="chapter" data-level="1.0.2" data-path="01.1_setup.html"><a href="01.1_setup.html#rstudio"><i class="fa fa-check"></i><b>1.0.2</b> RStudio</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -75,7 +115,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to RNA-seq analysis for wet-lab scientists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to RNAseq</a>
           </h1>
         </div>
 
@@ -84,16 +124,17 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Intro to RNA-seq analysis for wet-lab scientists</h1>
+<h1 class="title">Introduction to RNAseq</h1>
 <h4 class="author"><em>Mark Robinson</em></h4>
-<h4 class="date"><em>2017-08-21</em></h4>
+<h4 class="date"><em>2017-09-08</em></h4>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
-<p>This session is designed to quickly familiarise wet-lab scientists with the basic concepts and common practices for RNA-seq analysis. It covers basic command line interaction, sequence QC, quantification and visualisation. This is a lot to take in all at once but all this information will remain available on this site to go over at your own pace. Additional resources are linked towards the end for anyone wanting to go into greater detail.</p>
-<div id="contact" class="section level2">
-<h2><span class="header-section-number">1.1</span> Contact</h2>
-<p>If you have any questions drop me an email at my imperial address - m.robinson.</p>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p>The purpose of this tutorial is to introduce bioinformatics to complete beginners in a practical and accessible way. We’ll cover from s.</p>
+<p>This site will remain active if you want to go through it at your own pace and I’m planning to continue developing it to provide further depth and introduce other bioinformatics topics in the future. Hopefully this will prove a useful resource for the department, if you have any ideas/requests let me know!</p>
+<div id="contact" class="section level2 unnumbered">
+<h2>Contact</h2>
+<p>Any questions drop me an email at my imperial address - m.robinson</p>
 
 </div>
 </div>
@@ -103,7 +144,7 @@
         </div>
       </div>
 
-<a href="system-setup.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="01.1_setup.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
