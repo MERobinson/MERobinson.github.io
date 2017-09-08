@@ -1,10 +1,11 @@
 --- 
-title: "Introduction to RNAseq"
 author: "Mark Robinson"
 date: "`r Sys.Date()`"
+title: "Introduction to RNAseq"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
+    highlight: tango
     split_by: rmd
 documentclass: book
 bibliography: [packages.bib]
@@ -12,15 +13,20 @@ biblio-style: apalike
 link-citations: yes
 ---
 
+----------------------
+
 # Preface {-}
 
-The purpose of this tutorial is to introduce bioinformatics to complete beginners in a practical and accessible way. We'll cover from s. 
+The purpose of this tutorial is to introduce bioinformatics to complete beginners in a practical and accessible way. We'll quickly cover setup, basic R scripting, data formats, qc, read alignment, quantification and visualistion.
 
 This site will remain active if you want to go through it at your own pace and I'm planning to continue developing it to provide further depth and introduce other bioinformatics topics in the future. Hopefully this will prove a useful resource for the department, if you have any ideas/requests let me know!
 
 ## Contact {-}
 
-Any questions drop me an email at my imperial address - m.robinson
+Any questions drop me an email at my imperial address - m.robinson@ic.ac.uk
+
+----------------------
+![](images/rmarkdown_small.png) ![](images/knitr.png) ![](images/offline-trex_small.png) ![](images/lab_logo.png) 
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
