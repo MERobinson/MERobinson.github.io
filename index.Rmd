@@ -7,10 +7,12 @@ output:
   bookdown::gitbook:
     highlight: tango
     split_by: rmd
+    css: css/style.css
 documentclass: book
 bibliography: [packages.bib]
 biblio-style: apalike
 link-citations: yes
+cover-image: images/lab_logo.png
 ---
 
 ----------------------
@@ -27,10 +29,3 @@ Any questions drop me an email at my imperial address - m.robinson@ic.ac.uk
 
 ----------------------
 ![](images/rmarkdown_small.png) ![](images/knitr.png) ![](images/offline-trex_small.png) ![](images/lab_logo.png) 
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```

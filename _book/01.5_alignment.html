@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to RNAseq</title>
+  <meta name="description" content="Introduction to RNAseq">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to RNAseq" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/lab_logo.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to RNAseq" />
+  
+  
+  <meta name="twitter:image" content="images/lab_logo.png" />
+
+<meta name="author" content="Mark Robinson">
+
+
+<meta name="date" content="2017-09-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="01.4_qc.html">
+<link rel="next" href="02.0_resources.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="01.1_overview.html"><a href="01.1_overview.html"><i class="fa fa-check"></i><b>1</b> RNA-seq Overview</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_overview.html"><a href="01.1_overview.html#experimental-design"><i class="fa fa-check"></i><b>1.0.1</b> Experimental Design</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01.2_setup.html"><a href="01.2_setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="01.2_setup.html"><a href="01.2_setup.html#r"><i class="fa fa-check"></i><b>2.0.1</b> R</a></li>
+<li class="chapter" data-level="2.0.2" data-path="01.2_setup.html"><a href="01.2_setup.html#rstudio"><i class="fa fa-check"></i><b>2.0.2</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.0.1</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.0.2" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#working-directory"><i class="fa fa-check"></i><b>3.0.2</b> Working Directory</a></li>
+<li class="chapter" data-level="3.0.3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#programming-languages"><i class="fa fa-check"></i><b>3.0.3</b> Programming languages</a></li>
+<li class="chapter" data-level="3.0.4" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#coding-concepts"><i class="fa fa-check"></i><b>3.0.4</b> Coding Concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="01.4_qc.html"><a href="01.4_qc.html"><i class="fa fa-check"></i><b>4</b> Quality Control</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="01.4_qc.html"><a href="01.4_qc.html#setup"><i class="fa fa-check"></i><b>4.0.1</b> Setup</a></li>
+<li class="chapter" data-level="4.0.2" data-path="01.4_qc.html"><a href="01.4_qc.html#fastq-data"><i class="fa fa-check"></i><b>4.0.2</b> FASTQ Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="01.4_qc.html"><a href="01.4_qc.html#base-quality-scores"><i class="fa fa-check"></i><b>4.0.3</b> Base Quality Scores</a></li>
+<li class="chapter" data-level="4.0.4" data-path="01.4_qc.html"><a href="01.4_qc.html#qc-report"><i class="fa fa-check"></i><b>4.0.4</b> QC Report</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="01.5_alignment.html"><a href="01.5_alignment.html"><i class="fa fa-check"></i><b>5</b> Read Alignment</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.1</b> Setup</a></li>
+<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.2</b> Creating Genome Index</a></li>
+<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.3</b> Aligning Reads</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>6</b> Resources</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>6.0.1</b> Reviews</a></li>
+<li class="chapter" data-level="6.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>6.0.2</b> Tool papers</a></li>
+<li class="chapter" data-level="6.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>6.0.3</b> Tool websites</a></li>
+<li class="chapter" data-level="6.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>6.0.4</b> Protocols</a></li>
+<li class="chapter" data-level="6.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>6.0.5</b> Blog &amp; Forum Posts:</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to RNAseq</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="read-alignment" class="section level1">
+<h1><span class="header-section-number">5</span> Read Alignment</h1>
+<p>The traditional approach to RNA-seq analysis is to first align reads against the reference genome, then count the number of reads per gene or transcript. The major challenge in RNA-seq read alignment is accounting for splicing. There’s two main ways to approach this:</p>
+<ol style="list-style-type: decimal">
+<li>If the transcriptome of interest is well annotated you can simply use a standard short read aligner to map reads directly to the transcriptome</li>
+<li>If transcriptome annotation is poor or novel splicing/transcripts are of interest it’s better to go for spliced alignment algorithms</li>
+</ol>
+<p>A relatively new breed of algorithms allow alignment-free quantification of transcript abundance - and therefore tend to be much faster, and potentially <a href="https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/">more accurate</a>. The major drawback being that alignment-free prevents identification of novel transcripts, gene-fusions, mutations, etc.</p>
+<p>My personal preference currently would be to use <a href="https://github.com/alexdobin/STAR">STAR</a> for novel/fusion/mutation analyses together with <a href="https://combine-lab.github.io/salmon/">Salmon</a> or <a href="https://pachterlab.github.io/kallisto/about">Kallisto</a> for quantification.</p>
+<p>For a list of commonly used tools see the <a href="02.0_resources.html#resources">resources</a> section.</p>
+<p>For this tutorial we’ll stick with the traditional spliced-alignment approach. We’ll be using the <a href="https://github.com/juliangehring/GMAP-GSNAP">GSNAP</a> algorithm via an R package. GSNAP is also available at the command line, and performs pretty well in <a href="http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html">comparative simulations</a>.</p>
+<div id="setup-1" class="section level3">
+<h3><span class="header-section-number">5.0.1</span> Setup</h3>
+<p>BSgenome packages contain information on whole genomes, SNPs and sometimes masks. This specific package is for Mus musculus mm10 genome.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">suppressWarnings</span>(<span class="kw">require</span>(BSgenome.Mmusculus.UCSC.mm10))) {
+  <span class="kw">source</span>(<span class="st">&quot;http://bioconductor.org/biocLite.R&quot;</span>)
+  <span class="kw">biocLite</span>(<span class="st">&quot;BSgenome.Mmusculus.UCSC.mm10&quot;</span>)
+  <span class="kw">library</span>(BSgenome.Mmusculus.UCSC.mm10)
+}</code></pre></div>
+<p>TxDb packages contain annotation information for specific genome builds and database sources. This specific package is for UCSC knownGene annotations for the Mus musculus mm10 genome.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">suppressWarnings</span>(<span class="kw">require</span>(TxDb.Mmusculus.UCSC.mm10.knownGene))) {
+  <span class="kw">source</span>(<span class="st">&quot;http://bioconductor.org/biocLite.R&quot;</span>)
+  <span class="kw">biocLite</span>(<span class="st">&quot;TxDb.Mmusculus.UCSC.mm10.knownGene&quot;</span>)
+  <span class="kw">library</span>(TxDb.Mmusculus.UCSC.mm10.knownGene)
+}</code></pre></div>
+<p>gmapR is a package to run GSNAP from R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">suppressWarnings</span>(<span class="kw">require</span>(gmapR))) {
+  <span class="kw">source</span>(<span class="st">&quot;http://bioconductor.org/biocLite.R&quot;</span>)
+  <span class="kw">biocLite</span>(<span class="st">&quot;gmapR&quot;</span>)
+  <span class="kw">library</span>(gmapR)
+}</code></pre></div>
+</div>
+<div id="creating-genome-index" class="section level3">
+<h3><span class="header-section-number">5.0.2</span> Creating Genome Index</h3>
+<p>As with most alignment tools we first need to create an index of the reference genome, for this we’re using that mm10 sequence from the BSgenome package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mm10_genome &lt;-<span class="st"> </span>BSgenome.Mmusculus.UCSC.mm10</code></pre></div>
+<p>Normally you would just use this as the genome argument in the indexing but to speed things up we need to get just the sequence of chr10 from the BSgenome object into a usable format. You don’t really need to know whats going on here just run the following commands:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mm10_chr10 &lt;-<span class="st"> </span><span class="kw">as</span>(mm10_genome$chr10, <span class="st">&quot;DNAStringSet&quot;</span>)
+<span class="kw">names</span>(mm10_chr10) &lt;-<span class="st"> &quot;chr10&quot;</span></code></pre></div>
+<p>Okay now we’re ready to create the index using the <code>GmapGenome()</code> function which takes the following arguments:</p>
+<ul>
+<li>genome = The sequence object to index</li>
+<li>name = a name to save the index as</li>
+<li>create = indicates whether to create a new index</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">index &lt;-<span class="st"> </span><span class="kw">GmapGenome</span>(<span class="dt">genome =</span> mm10_chr10,
+                    <span class="dt">name =</span> <span class="st">&quot;mm10_chr10&quot;</span>,
+                    <span class="dt">create =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Next we want known splice-site information to supplement the index with, we’ll get this from the knownGene TxDb. First load the txdb object, extract exons with the <code>exonsBy()</code> accessor function, then filter chromosomes to just get chr10 exons.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">txdb &lt;-<span class="st"> </span>TxDb.Mmusculus.UCSC.mm10.knownGene
+exons &lt;-<span class="st"> </span><span class="kw">exonsBy</span>(txdb)
+chr10_exons &lt;-<span class="st"> </span><span class="kw">keepSeqlevels</span>(exons, <span class="st">&quot;chr10&quot;</span>)</code></pre></div>
+<p>We then add this information to the index using the <code>spliceSites()</code> accessor.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">spliceSites</span>(index, <span class="st">&quot;knownGene&quot;</span>) &lt;-<span class="st"> </span>chr10_exons</code></pre></div>
+<p>Ok all setup, alignment time!</p>
+</div>
+<div id="aligning-reads" class="section level3">
+<h3><span class="header-section-number">5.0.3</span> Aligning Reads</h3>
+<p>Alignment parameters are set as a simple list then passed the mapping function.</p>
+<p>There’s lots of potential parameters to tweak but lets just go through a few important ones:</p>
+<ul>
+<li>-m : the maximum penalty score allowed when mapping - for each mismatch, indel or very distant splicing, GSNAP will apply a penalty to the mapping score. This should be adjusted according to read length.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> gsnap_param &lt;-<span class="st"> </span><span class="kw">GsnapParam</span>(<span class="dt">genome =</span> index,
+                           <span class="dt">unique_only =</span> <span class="ot">FALSE</span>,
+                           <span class="dt">suboptimal_levels =</span> 2L,
+                           <span class="dt">npaths =</span> 10L,
+                           <span class="dt">novelsplicing =</span> <span class="ot">TRUE</span>,
+                           <span class="dt">splicing =</span> <span class="st">&quot;knownGene&quot;</span>,
+                           <span class="dt">indel_penalty =</span> 1L,
+                           <span class="dt">distant_splice_penalty =</span> 1L,
+                           <span class="dt">clip_overlap =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Then we (would) just run the alignment like so:</p>
+
+<div class="rmdimportant">
+Even with just one chromosome this is still pretty slow (~25m) so rather than run it right now we’ll just load some pre-computed values.
+</div>
+<p></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gsnap_output &lt;-<span class="st"> </span><span class="kw">gsnap</span>(<span class="dt">input_a =</span> fastq_files[[<span class="dv">1</span>]],
+                      <span class="dt">input_b =</span> fastq_files[[<span class="dv">2</span>]],
+                      <span class="dt">params =</span> gsnap_param)</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="01.4_qc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="02.0_resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

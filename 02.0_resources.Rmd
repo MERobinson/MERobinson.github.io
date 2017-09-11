@@ -1,0 +1,48 @@
+# Resources
+
+### Reviews
+
+* [RNA-seq best practices](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8) - Conesa et al., 2016. *Genome Biology.*
+* [Statistical methods for differential expression](https://www.ncbi.nlm.nih.gov/pubmed/26688660) - Huang et al. 2015. *Cancer Informatics.*
+* [RNA-seq overview](https://www.ncbi.nlm.nih.gov/pubmed/19015660) - Wang et al., 2009. *Nature Reviews Genetics.*
+
+### Tool papers
+
+* [STAR](https://www.ncbi.nlm.nih.gov/pubmed/23104886)
+* [Sailfish](http://www.nature.com/nbt/journal/v32/n5/full/nbt.2862.html)
+* [kallisto](http://www.nature.com/nbt/journal/v34/n5/full/nbt.3519.html)
+* [Salmon](http://www.biorxiv.org/content/early/2015/10/03/021592)
+* 
+
+### Tool websites
+
+* [STAR](https://github.com/alexdobin/STAR)
+* [Tophat2](http://ccb.jhu.edu/software/tophat/index.shtml)
+* [HISAT2](http://ccb.jhu.edu/software/hisat2/index.shtml)
+* [Salmon](https://combine-lab.github.io/salmon/)
+* [Kallisto](https://pachterlab.github.io/kallisto/about)
+* [Sailfish](http://www.cs.cmu.edu/~ckingsf/software/sailfish/)
+
+### Protocols
+
+* [Mapping read with STAR](https://www.ncbi.nlm.nih.gov/pubmed/26334920)
+* 
+
+### Blog & Forum Posts:
+
+#### QC
+
+* [FASTQC duplication plot explanation](https://www.biostars.org/p/107402/)
+
+#### Aligners
+
+* [Comparing alignment-free and spliced alignment algorithms](https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/)
+
+    > Unless one specifically requires transcript-level quantification, I would therefore always recommend using gene-level quantification
+
+    > From these simulations, it appears to be far better to use alignment-independent counting and aggregate to the gene level. 
+
+
+#### General
+
+* [Explanation of arguments for SRA-Tools fastq-dump](https://edwards.sdsu.edu/research/fastq-dump/)

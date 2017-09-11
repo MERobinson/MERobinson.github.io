@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Introduction to RNAseq</title>
   <meta name="description" content="Introduction to RNAseq">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Introduction to RNAseq" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="images/lab_logo.png" />
   
   
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Introduction to RNAseq" />
   
   
-  
+  <meta name="twitter:image" content="images/lab_logo.png" />
 
 <meta name="author" content="Mark Robinson">
 
 
-<meta name="date" content="2017-09-08">
+<meta name="date" content="2017-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 
-<link rel="next" href="01.1_setup.html">
+<link rel="next" href="01.1_overview.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -87,6 +87,7 @@ code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -102,9 +103,36 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="01.1_setup.html"><a href="01.1_setup.html"><i class="fa fa-check"></i><b>1</b> System Setup</a><ul>
-<li class="chapter" data-level="1.0.1" data-path="01.1_setup.html"><a href="01.1_setup.html#r"><i class="fa fa-check"></i><b>1.0.1</b> R</a></li>
-<li class="chapter" data-level="1.0.2" data-path="01.1_setup.html"><a href="01.1_setup.html#rstudio"><i class="fa fa-check"></i><b>1.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="1" data-path="01.1_overview.html"><a href="01.1_overview.html"><i class="fa fa-check"></i><b>1</b> RNA-seq Overview</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_overview.html"><a href="01.1_overview.html#experimental-design"><i class="fa fa-check"></i><b>1.0.1</b> Experimental Design</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01.2_setup.html"><a href="01.2_setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="01.2_setup.html"><a href="01.2_setup.html#r"><i class="fa fa-check"></i><b>2.0.1</b> R</a></li>
+<li class="chapter" data-level="2.0.2" data-path="01.2_setup.html"><a href="01.2_setup.html#rstudio"><i class="fa fa-check"></i><b>2.0.2</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.0.1</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.0.2" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#working-directory"><i class="fa fa-check"></i><b>3.0.2</b> Working Directory</a></li>
+<li class="chapter" data-level="3.0.3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#programming-languages"><i class="fa fa-check"></i><b>3.0.3</b> Programming languages</a></li>
+<li class="chapter" data-level="3.0.4" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#coding-concepts"><i class="fa fa-check"></i><b>3.0.4</b> Coding Concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="01.4_qc.html"><a href="01.4_qc.html"><i class="fa fa-check"></i><b>4</b> Quality Control</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="01.4_qc.html"><a href="01.4_qc.html#setup"><i class="fa fa-check"></i><b>4.0.1</b> Setup</a></li>
+<li class="chapter" data-level="4.0.2" data-path="01.4_qc.html"><a href="01.4_qc.html#fastq-data"><i class="fa fa-check"></i><b>4.0.2</b> FASTQ Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="01.4_qc.html"><a href="01.4_qc.html#base-quality-scores"><i class="fa fa-check"></i><b>4.0.3</b> Base Quality Scores</a></li>
+<li class="chapter" data-level="4.0.4" data-path="01.4_qc.html"><a href="01.4_qc.html#qc-report"><i class="fa fa-check"></i><b>4.0.4</b> QC Report</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="01.5_alignment.html"><a href="01.5_alignment.html"><i class="fa fa-check"></i><b>5</b> Read Alignment</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.1</b> Setup</a></li>
+<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.2</b> Creating Genome Index</a></li>
+<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.3</b> Aligning Reads</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>6</b> Resources</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>6.0.1</b> Reviews</a></li>
+<li class="chapter" data-level="6.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>6.0.2</b> Tool papers</a></li>
+<li class="chapter" data-level="6.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>6.0.3</b> Tool websites</a></li>
+<li class="chapter" data-level="6.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>6.0.4</b> Protocols</a></li>
+<li class="chapter" data-level="6.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>6.0.5</b> Blog &amp; Forum Posts:</a></li>
 </ul></li>
 </ul>
 
@@ -126,7 +154,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Introduction to RNAseq</h1>
 <h4 class="author"><em>Mark Robinson</em></h4>
-<h4 class="date"><em>2017-09-08</em></h4>
+<h4 class="date"><em>2017-09-11</em></h4>
 </div>
 <hr />
 <div id="preface" class="section level1 unnumbered">
@@ -147,7 +175,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 
-<a href="01.1_setup.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="01.1_overview.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -158,7 +186,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -187,6 +215,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

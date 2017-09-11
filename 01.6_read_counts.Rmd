@@ -1,0 +1,120 @@
+
+# Read Alignment
+
+The traditional approach to RNA-seq analysis is to first align reads against the reference genome, then count the number of reads per gene or transcript. The major challenge in RNA-seq read alignment is accounting for splicing. There's two main ways to approach this:
+
+1. If the transcriptome of interest is well annotated you can simply use a standard short read aligner to map reads directly to the transcriptome
+2. If transcriptome annotation is poor or novel splicing/transcripts are of interest it's better to go for spliced alignment algorithms
+
+A relatively new breed of algorithms allow alignment-free quantification of transcript abundance - and therefore tend to be much faster, and potentially [more accurate](https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/). The major drawback being that alignment-free prevents identification of novel transcripts, gene-fusions, mutations, etc. 
+
+My personal preference currently would be to use [STAR](https://github.com/alexdobin/STAR) for novel/fusion/mutation analyses together with [Salmon](https://combine-lab.github.io/salmon/) or [Kallisto](https://pachterlab.github.io/kallisto/about) for quantification.
+
+For a list of commonly used tools see the [resources] section.
+
+For this tutorial we'll stick with the traditional spliced-alignment approach. We'll be using the [GSNAP](http://research-pub.gene.com/gmap/) algorithm via an R package. GSNAP is also available at the command line, and performs pretty well in [comparative simulations](http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html).
+
+### Setup
+
+BSgenome packages contain information on whole genomes, SNPs and sometimes masks. This specific package is for Mus musculus mm10 genome. 
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+if (!suppressWarnings(require(BSgenome.Mmusculus.UCSC.mm10))) {
+  source("http://bioconductor.org/biocLite.R")
+  biocLite("BSgenome.Mmusculus.UCSC.mm10")
+  library(BSgenome.Mmusculus.UCSC.mm10)
+}
+```
+
+TxDb packages contain annotation information for specific genome builds and database sources. This specific package is for UCSC knownGene annotations for the Mus musculus mm10 genome. 
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+if (!suppressWarnings(require(TxDb.Mmusculus.UCSC.mm10.knownGene))) {
+  source("http://bioconductor.org/biocLite.R")
+  biocLite("TxDb.Mmusculus.UCSC.mm10.knownGene")
+  library(TxDb.Mmusculus.UCSC.mm10.knownGene)
+}
+```
+
+gmapR is a package to run GSNAP from R.
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+if (!suppressWarnings(require(gmapR))) {
+  source("http://bioconductor.org/biocLite.R")
+  biocLite("gmapR")
+  library(gmapR)
+}
+```
+
+### Creating Genome Index
+
+As with most alignment tools we first need to create an index of the reference genome, for this we're using that mm10 sequence from the BSgenome package.
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+mm10_genome <- BSgenome.Mmusculus.UCSC.mm10
+```
+
+Normally you would just use this as the genome argument in the indexing but to speed things up we need to get just the sequence of chr10 from the BSgenome object into a usable format. You don't really need to know whats going on here just run the following commands:
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+mm10_chr10 <- as(mm10_genome$chr10, "DNAStringSet")
+names(mm10_chr10) <- "chr10"
+```
+
+Okay now we're ready to create the index using the ```GmapGenome()``` function which takes the following arguments:
+
+* genome = The sequence object to index
+* name = a name to save the index as
+* create = indicates whether to create a new index
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+index <- GmapGenome(genome = mm10_chr10,
+                    name = "mm10_chr10",
+                    create = TRUE)
+```
+
+Next we want known splice-site information to supplement the index with, we'll get this from the knownGene TxDb. First load the txdb object, extract exons with the ```exonsBy()``` accessor function, then filter chromosomes to just get chr10 exons.
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene
+exons <- exonsBy(txdb)
+chr10_exons <- keepSeqlevels(exons, "chr10")
+```
+
+We then add this information to the index using the ```spliceSites()``` accessor.
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+spliceSites(index, "knownGene") <- chr10_exons
+```
+
+Ok all setup, alignment time!
+
+### Aligning Reads
+
+Alignment parameters are set as a simple list then passed to the mapping function.
+
+Most alignment tools have lots of parameters that you can tweak to alter the default behaviour. You can (usually) find documentation for all the options on the tools website. These parameters basically just set some penalties for indels and distant splice sites, and tell the tool to look for novel splicing.
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+ gsnap_param <- GsnapParam(genome = index,
+                           unique_only = FALSE,
+                           suboptimal_levels = 2L,
+                           npaths = 10L,
+                           novelsplicing = TRUE,
+                           splicing = "knownGene",
+                           indel_penalty = 1L,
+                           distant_splice_penalty = 1L,
+                           clip_overlap = TRUE)
+```
+
+Then we (would) just run the alignment like so:
+
+```{block2, type='rmdimportant'}
+Even with just one chromosome this is still pretty slow (~25m) so rather than run it right now we'll just load some pre-aligned data.
+```
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+gsnap_output <- gsnap(input_a = fastq_files[[1]],
+                      input_b = fastq_files[[2]],
+                      params = gsnap_param)
+```

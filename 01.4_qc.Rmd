@@ -1,0 +1,141 @@
+
+# Quality Control
+
+The first important step once you have your raw FASTQ data is to check the quality of the reads.
+
+I'd actually normally do this step with [FASTQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) - which is the standard tool for FASTQ QC and can be run either as a desktop application or at the command line. For now we'll stick with R though.
+
+There are a few packages in R that you can use for this: [ShortRead](https://bioconductor.org/packages/release/bioc/html/ShortRead.html), [Rqc](http://bioconductor.org/packages/release/bioc/html/Rqc.html), [SeqTools](https://bioconductor.org/packages/release/bioc/html/seqTools.html), [Rsubread](https://bioconductor.org/packages/release/bioc/html/Rsubread.html) and others. We'll use ShortRead. 
+
+### Setup
+
+Bioinformatics R packages are available from 2 main repositories - [CRAN](https://cran.r-project.org/) which is the general R site, and [Bioconductor](http://www.bioconductor.org/) - which is specific for genomics packages.
+
+ShortRead is a Bioconductor package, so to install we can use the ```biocLite``` installer:
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+source("https://bioconductor.org/biocLite.R")
+biocLite("ShortRead")
+```
+
+Then we **load** the package with ```library``` so that we can access it's functions:
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+library("ShortRead")
+```
+
+You only need to **install** packages once, but you need to **load** them every time you open a new session.
+
+For convenience you can wrap this in a conditional statement to check if the package is already installed, and if not install then load it.
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+if (!suppressWarnings(require(ShortRead))) {
+  source("http://bioconductor.org/biocLite.R")
+  biocLite("ShortRead")
+  library(ShortRead)
+}
+```
+
+### FASTQ Data
+
+You don't actually need to read the FASTQ files into R to run the QC but lets just take a quick look to familiarise ourselves with what FASTQ files contain.
+
+First, find the FASTQ files ```list.files``` function with the following arguments:
+
+* ```path``` tells it where to search - in this case, the fastq folder
+* ```full.names``` tell it whether to include the directory name as well, which we need so we'll set it to TRUE
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+fastq_files <- list.files(path = "fastq", full.names = TRUE)
+```
+
+Now lets read one of the files into R with the ```readFastq``` function.
+
+Normally you wouldn't want to read a full FASTQ file into R becuase they're big and you'd quickly run out of memory, but the files we're using are just one chromosome so it's all good.
+
+To get just the first file from the list we **index** it by adding the ```[1]```:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+fastq_data <- readFastq(fastq_files[1])
+```
+
+If you just type the variable name you can see some basic info - the class of the object, the number of reads and the number of cycles (i.e. read length):
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+fastq_data
+```
+
+Take a look at some reads with the ```sread``` function:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+head(sread(fastq_data))
+```
+
+As you can see, this is just a series of called bases for each read.
+
+You can also view base qualities with the ```quality``` function:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+head(quality(fastq_data))
+```
+
+If the base quality scores printed by the above command look like nonsense to you, thats because they kind of are!
+
+### Base Quality Scores
+
+Each base is given a quality score to indicate the probability of the base call being wrong. The probablity is scaled with the equation below to produce the **Phred quality score**:
+
+$$ Q = -10 log_{10} P $$
+
+And if you hate maths:
+
+> "Ten times the number of zeros you need to wack in front of a 1 to get the probability"
+
+So the **higher** the Phred score the **better**!
+
+In FASTQ format the Phred quality score is then encoded by a character - there's some odd logic to doing this but I wouldn't sweat it, most tools will convert it back to the Phred score for you.
+
+Examples:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, echo=F}
+tmp <- data.frame("Phred Quality Score" = c("10","20","30","40"),
+                  "Probability of error" = c("0.1 (1 in 10)", 
+                                          "0.01 (1 in 100)",
+                                          "0.001 (1 in 1,000)",
+                                          "0.0001 (1 in 10,000)"),
+                  "Base call accuracy" = c("90%", "99%", "99.9%", "99.99%"),
+                  "ASCII encoding" = c("+", "5", "?", "I"),
+                  stringsAsFactors = F, check.names = F)
+knitr::kable(
+  tmp, booktabs = TRUE,
+  caption = 'Converting base quality scores.'
+)
+```
+
+### QC Report
+
+To generate the QC metrics for all the FASTQ all you need to do is run the ```qa``` command on the fastq directory:
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+qa_summary <- qa(dirPath = "fastq", type="fastq")
+```
+
+You can then view a report in a web-browser by running:
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+browseURL(report(qa_summary))
+```
+
+The report gives some advice about what you'd expect to see in high/poor quality data, it's worth taking a read. There some additional common issues worth being aware of too.
+
+Common issues:
+
+* Sequence quality degrades with increasing read length so you'll often see a drop towards the end of reads - particularly for longer reads
+* A temporary drop in quality in the middle of reads could indicate a run issue such as bubbles running through the flow cell
+* Over-represented sequences - such as contaminants or spike-ins can bias base composition, GC content and duplication
+* Base composition bias in the first ~12bp - this is often observed due to the fact that random hexamer priming isn't really random, but doesn't appear to have an effect downstream and can generally just be ignored.
+* Duplication - RNA-seq libraries will often have high degrees of duplication due to highly abundant transcripts and potentially spike-ins, it's on the whole best not to remove duplicates in RNA-seq.
+
+We can see one of these common issues in the report - both reads 1 and 2 show a temporary drop in quality at around cycle 80 and 45 respectively. It's possible to mask the bases from these cycles across reads, however for the tutorial we'll just leave them as they are.
+
+How best to address QC issues is strongly influenced by your choice of alignment tool. For instance if you see low base quality towards the ends of your reads trimming would be advisable for non-truncating aligners such as Tophat but might not be necessary for aligners such as STAR which can soft-clip unaligned sections. Tools also have differing levels of mis-match tolerance. [This review](http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html) is a bit outdated but still worth a read.

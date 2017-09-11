@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to RNAseq</title>
+  <meta name="description" content="Introduction to RNAseq">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to RNAseq" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/lab_logo.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to RNAseq" />
+  
+  
+  <meta name="twitter:image" content="images/lab_logo.png" />
+
+<meta name="author" content="Mark Robinson">
+
+
+<meta name="date" content="2017-09-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="01.3_R_basics.html">
+<link rel="next" href="01.4_qc.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="01.1_overview.html"><a href="01.1_overview.html"><i class="fa fa-check"></i><b>1</b> RNA-seq Overview</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_overview.html"><a href="01.1_overview.html#geo-sra"><i class="fa fa-check"></i><b>1.0.1</b> GEO &amp; SRA</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01.2_setup.html"><a href="01.2_setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="01.2_setup.html"><a href="01.2_setup.html#r"><i class="fa fa-check"></i><b>2.0.1</b> R</a></li>
+<li class="chapter" data-level="2.0.2" data-path="01.2_setup.html"><a href="01.2_setup.html#rstudio"><i class="fa fa-check"></i><b>2.0.2</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.0.1</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.0.2" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#programming-languages"><i class="fa fa-check"></i><b>3.0.2</b> Programming languages</a></li>
+<li class="chapter" data-level="3.0.3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#coding-basics"><i class="fa fa-check"></i><b>3.0.3</b> Coding Basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="01.4_alignment.html"><a href="01.4_alignment.html"><i class="fa fa-check"></i><b>4</b> Quality Control</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="01.4_alignment.html"><a href="01.4_alignment.html#rstudio-interface-1"><i class="fa fa-check"></i><b>4.0.1</b> RStudio Interface</a></li>
+<li class="chapter" data-level="4.0.2" data-path="01.4_alignment.html"><a href="01.4_alignment.html#programming-languages-1"><i class="fa fa-check"></i><b>4.0.2</b> Programming languages</a></li>
+<li class="chapter" data-level="4.0.3" data-path="01.4_alignment.html"><a href="01.4_alignment.html#coding-basics-1"><i class="fa fa-check"></i><b>4.0.3</b> Coding Basics</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="01.4_qc.html"><a href="01.4_qc.html"><i class="fa fa-check"></i><b>5</b> Quality Control</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="01.4_qc.html"><a href="01.4_qc.html#installing"><i class="fa fa-check"></i><b>5.0.1</b> Installing</a></li>
+<li class="chapter" data-level="5.0.2" data-path="01.4_qc.html"><a href="01.4_qc.html#reading-fastq"><i class="fa fa-check"></i><b>5.0.2</b> Reading FASTQ</a></li>
+<li class="chapter" data-level="5.0.3" data-path="01.4_qc.html"><a href="01.4_qc.html#base-quality-scores"><i class="fa fa-check"></i><b>5.0.3</b> Base Quality Scores</a></li>
+<li class="chapter" data-level="5.0.4" data-path="01.4_qc.html"><a href="01.4_qc.html#interpreting-results"><i class="fa fa-check"></i><b>5.0.4</b> Interpreting Results</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to RNAseq</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="quality-control" class="section level1">
+<h1><span class="header-section-number">4</span> Quality Control</h1>
+<p>To run analyses in R you’re going to need to know a few basic concepts about scripting/programming and some simple R commands.</p>
+<div id="rstudio-interface-1" class="section level3">
+<h3><span class="header-section-number">4.0.1</span> RStudio Interface</h3>
+<p>Firstly, open RStudio from your applications. The RStudio interface should look something like this:</p>
+<div class="figure" style="text-align: center"><span id="fig:moo"></span>
+<img src="images/rstudio_interface.png" alt="The RStudio interface" width="90%" />
+<p class="caption">
+Figure 4.1: The RStudio interface
+</p>
+</div>
+<p>Theres three main pane areas here:</p>
+<ul>
+<li>Left: This is the <strong>Console</strong> - the place where you input commands</li>
+<li>Upper right: contains <strong>Environment</strong> and <strong>History</strong> tabs, but you don’t need to worry about these just yet.</li>
+<li>Lower right: This pane has a few useful tabs:
+<ul>
+<li><strong>Files</strong> : a simple file explorer - lets you see and open files on your system</li>
+<li><strong>Plots</strong> : this is where graphics are shown when you create them</li>
+<li><strong>Packages</strong> : just a list of available R packages to load</li>
+<li><strong>Help</strong> : here you can find helpful documentation on using R</li>
+</ul></li>
+</ul>
+<p>In the files window, create a new folder for the current analysis and enter it.</p>
+<p>The R session has a position in your file system - this is called the <strong>working directory</strong>. This is where all files will be loaded from or saved to by default.</p>
+<p>You can change the working directory by going to the ‘Session’ menu -&gt; ‘Set Working Directory’. ‘To Files Pane Location’ will set it to the location of the files pane on the right, or ‘Choose Directory’ lets you choose anywhere you’d like.</p>
+<p>Set the working directory to the new folder we just made.</p>
+</div>
+<div id="programming-languages-1" class="section level3">
+<h3><span class="header-section-number">4.0.2</span> Programming languages</h3>
+<p>Coding is essentially just passing commands to your computer. Commands are written in one of many <strong>programming languages</strong> which can then be translated into a machine-readable format.</p>
+<p>Many programming languages exist and which is best to use depends on the task. Some common languages in bioinformatics are:</p>
+<ul>
+<li>Bash : Bash (and other shell scripting languages) are used to interact with the main console/terminal - often refered to as the command line. It’s simple and pretty much essential to know to let you perform basic tasks like moving files and running programs at the command line.</li>
+<li>R : R is a slightly unusual language as it was developed by statisticians not programmers but this does mean it’s well equipped for performing statistical analyses.</li>
+<li>C : C was one of the first major programming languages and still one of the most widely used in the programming world, however it’s less abstracted than many, and therefore more difficult to write but faster to run. Good for serious algorithm-development but probably less use for the average applied bioinformatician.</li>
+<li>Python : Python is a good in between - fast enough to write some of your own quick programs but easy enough to write to use in standard downstream analysis too. Python is one of the most popular languages in bioinformatics.</li>
+<li>Perl : similar to python in it’s level of abstraction but maybe falling out of fashion a bit.</li>
+</ul>
+<p>Here we’ll be doing everything in R just to make it easier, but if anyones actually interested in getting more into bioinformatics I’d recommend learning Bash and Python too, you can find some resources to learn here @(resources).</p>
+</div>
+<div id="coding-basics-1" class="section level3">
+<h3><span class="header-section-number">4.0.3</span> Coding Basics</h3>
+<p>There’s nothing difficult about coding, but can seem intimidating at first due to the unfamiliar terminology and concepts, so lets just run through a few basic things first.</p>
+
+<div class="rmdimportant">
+Like any language programming languages have grammar rules (called syntax) which need to be followed - capitilisation, commas, brackets etc. all have special meaning and if you add a capital or comma in the wrong place it might stop making sense to the computer and result in an error. So be aware of what you type.
+</div>
+<p></p>
+<div id="assigning-variables-1" class="section level4">
+<h4><span class="header-section-number">4.0.3.1</span> Assigning Variables</h4>
+<p><strong>Variables</strong> are just objects you can create to hold information - just make up a name and tell it what to hold. The command below creates a variable called freddie and assigns it the value 1. Copy it to your R console and press enter to run it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freddie &lt;-<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<p>Now you can recall that value whenever you want by just giving the name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freddie</code></pre></div>
+
+<div class="rmdnote">
+R won’t like some variable names - it might give you an error if e.g. you try to use a name starting with a number. It’s generally best to stick to letters, underscores and periods.
+</div>
+<p></p>
+<p>The ‘&lt;-’ in the first command is called an <strong>operator</strong> - it’s just a symbol that performs a specific function, just like a mathematic operator. In fact you can use most common mathematical operators in R too:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freddie &lt;-<span class="st"> </span><span class="dv">1</span> +<span class="st"> </span><span class="dv">1</span>
+freddie &lt;-<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span><span class="dv">5</span></code></pre></div>
+<p>You can use the values stored in variables inside operations:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freddie &lt;-<span class="st"> </span>freddie /<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<p>The stored data doesn’t need to be numeric - for instance we could store a list of words:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animal_noises &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;moo&quot;</span>,<span class="st">&quot;baa&quot;</span>,<span class="st">&quot;quack&quot;</span>)</code></pre></div>
+</div>
+<div id="functions-arguments-1" class="section level4">
+<h4><span class="header-section-number">4.0.3.2</span> Functions &amp; Arguments</h4>
+<p><strong>Functions</strong> are kind of like mini-programs, they’re just a pre-defined series of commands run every time you call them. Using functions written by other people makes using R a lot easier - whatever you need to do, someone else has probably already written a function for it!</p>
+<p>There’s some data pre-existing in R that you can just mess around with to test things out, for instance, lets try looking at some plant data saved in a variable called iris:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris</code></pre></div>
+<p>This should have printed 150 lines of data to your console, but that’s a bit more information than we really wanted. It would be useful to look just at the first few lines, luckily there’s a function for that! try using the <strong>head</strong> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris)</code></pre></div>
+<p>Sweet! There’s lots of functions out there but you always call them in the same way - by typing the function name followed by curly brackets/parantheses.</p>
+<p>The things you put inside the brackets are called <strong>arguments</strong> - for instance in the last call to head we gave one argument - the iris variable.</p>
+<p>Every function has different arguments, some required and some optional. To find out what arguments a function wants you can look at the help page for that function by typing a question mark in front of the function name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?head</code></pre></div>
+<p>You can see from the help page that in addition to the object to look at, there’s an ‘n’ argument to head which lets you control how many rows to print. Lets try it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris, <span class="dt">n =</span> <span class="dv">10</span>)
+<span class="kw">head</span>(iris, <span class="dv">15</span>)</code></pre></div>
+<p>Note that you can give arguments by name e.g. <code>n = 10</code> or leave out the name and just give them in the order listed in the help documentation.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="01.3_R_basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="01.4_qc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

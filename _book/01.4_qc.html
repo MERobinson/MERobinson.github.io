@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to RNAseq</title>
+  <meta name="description" content="Introduction to RNAseq">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to RNAseq" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/lab_logo.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to RNAseq" />
+  
+  
+  <meta name="twitter:image" content="images/lab_logo.png" />
+
+<meta name="author" content="Mark Robinson">
+
+
+<meta name="date" content="2017-09-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="01.3_R_basics.html">
+<link rel="next" href="01.5_alignment.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="01.1_overview.html"><a href="01.1_overview.html"><i class="fa fa-check"></i><b>1</b> RNA-seq Overview</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_overview.html"><a href="01.1_overview.html#experimental-design"><i class="fa fa-check"></i><b>1.0.1</b> Experimental Design</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01.2_setup.html"><a href="01.2_setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="01.2_setup.html"><a href="01.2_setup.html#r"><i class="fa fa-check"></i><b>2.0.1</b> R</a></li>
+<li class="chapter" data-level="2.0.2" data-path="01.2_setup.html"><a href="01.2_setup.html#rstudio"><i class="fa fa-check"></i><b>2.0.2</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.0.1</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.0.2" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#working-directory"><i class="fa fa-check"></i><b>3.0.2</b> Working Directory</a></li>
+<li class="chapter" data-level="3.0.3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#programming-languages"><i class="fa fa-check"></i><b>3.0.3</b> Programming languages</a></li>
+<li class="chapter" data-level="3.0.4" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#coding-concepts"><i class="fa fa-check"></i><b>3.0.4</b> Coding Concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="01.4_qc.html"><a href="01.4_qc.html"><i class="fa fa-check"></i><b>4</b> Quality Control</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="01.4_qc.html"><a href="01.4_qc.html#setup"><i class="fa fa-check"></i><b>4.0.1</b> Setup</a></li>
+<li class="chapter" data-level="4.0.2" data-path="01.4_qc.html"><a href="01.4_qc.html#fastq-data"><i class="fa fa-check"></i><b>4.0.2</b> FASTQ Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="01.4_qc.html"><a href="01.4_qc.html#base-quality-scores"><i class="fa fa-check"></i><b>4.0.3</b> Base Quality Scores</a></li>
+<li class="chapter" data-level="4.0.4" data-path="01.4_qc.html"><a href="01.4_qc.html#qc-report"><i class="fa fa-check"></i><b>4.0.4</b> QC Report</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="01.5_alignment.html"><a href="01.5_alignment.html"><i class="fa fa-check"></i><b>5</b> Read Alignment</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.1</b> Setup</a></li>
+<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.2</b> Creating Genome Index</a></li>
+<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.3</b> Aligning Reads</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>6</b> Resources</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>6.0.1</b> Reviews</a></li>
+<li class="chapter" data-level="6.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>6.0.2</b> Tool papers</a></li>
+<li class="chapter" data-level="6.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>6.0.3</b> Tool websites</a></li>
+<li class="chapter" data-level="6.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>6.0.4</b> Protocols</a></li>
+<li class="chapter" data-level="6.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>6.0.5</b> Blog &amp; Forum Posts:</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to RNAseq</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="quality-control" class="section level1">
+<h1><span class="header-section-number">4</span> Quality Control</h1>
+<p>The first important step once you have your raw FASTQ data is to check the quality of the reads.</p>
+<p>I’d actually normally do this step with <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FASTQC</a> - which is the standard tool for FASTQ QC and can be run either as a desktop application or at the command line. For now we’ll stick with R though.</p>
+<p>There are a few packages in R that you can use for this: <a href="https://bioconductor.org/packages/release/bioc/html/ShortRead.html">ShortRead</a>, <a href="http://bioconductor.org/packages/release/bioc/html/Rqc.html">Rqc</a>, <a href="https://bioconductor.org/packages/release/bioc/html/seqTools.html">SeqTools</a>, <a href="https://bioconductor.org/packages/release/bioc/html/Rsubread.html">Rsubread</a> and others. We’ll use ShortRead.</p>
+<div id="setup" class="section level3">
+<h3><span class="header-section-number">4.0.1</span> Setup</h3>
+<p>Bioinformatics R packages are available from 2 main repositories - <a href="https://cran.r-project.org/">CRAN</a> which is the general R site, and <a href="http://www.bioconductor.org/">Bioconductor</a> - which is specific for genomics packages.</p>
+<p>ShortRead is a Bioconductor package, so to install we can use the <code>biocLite</code> installer:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;https://bioconductor.org/biocLite.R&quot;</span>)
+<span class="kw">biocLite</span>(<span class="st">&quot;ShortRead&quot;</span>)</code></pre></div>
+<p>Then we <strong>load</strong> the package with <code>library</code> so that we can access it’s functions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ShortRead&quot;</span>)</code></pre></div>
+<p>You only need to <strong>install</strong> packages once, but you need to <strong>load</strong> them every time you open a new session.</p>
+<p>For convenience you can wrap this in a conditional statement to check if the package is already installed, and if not install then load it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">suppressWarnings</span>(<span class="kw">require</span>(ShortRead))) {
+  <span class="kw">source</span>(<span class="st">&quot;http://bioconductor.org/biocLite.R&quot;</span>)
+  <span class="kw">biocLite</span>(<span class="st">&quot;ShortRead&quot;</span>)
+  <span class="kw">library</span>(ShortRead)
+}</code></pre></div>
+</div>
+<div id="fastq-data" class="section level3">
+<h3><span class="header-section-number">4.0.2</span> FASTQ Data</h3>
+<p>You don’t actually need to read the FASTQ files into R to run the QC but lets just take a quick look to familiarise ourselves with what FASTQ files contain.</p>
+<p>First, find the FASTQ files <code>list.files</code> function with the following arguments:</p>
+<ul>
+<li><code>path</code> tells it where to search - in this case, the fastq folder</li>
+<li><code>full.names</code> tell it whether to include the directory name as well, which we need so we’ll set it to TRUE</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fastq_files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> <span class="st">&quot;fastq&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Now lets read one of the files into R with the <code>readFastq</code> function.</p>
+<p>Normally you wouldn’t want to read a full FASTQ file into R becuase they’re big and you’d quickly run out of memory, but the files we’re using are just one chromosome so it’s all good.</p>
+<p>To get just the first file from the list we <strong>index</strong> it by adding the <code>[1]</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fastq_data &lt;-<span class="st"> </span><span class="kw">readFastq</span>(fastq_files[<span class="dv">1</span>])</code></pre></div>
+<p>If you just type the variable name you can see some basic info - the class of the object, the number of reads and the number of cycles (i.e. read length):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fastq_data</code></pre></div>
+<pre><code>## class: ShortReadQ
+## length: 1454981 reads; width: 100 cycles</code></pre>
+<p>Take a look at some reads with the <code>sread</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">sread</span>(fastq_data))</code></pre></div>
+<pre><code>##   A DNAStringSet instance of length 6
+##     width seq
+## [1]   100 TTTACAGCCAAGTATTTAAAATGTTTTGTCA...TTAAAACTTTAACTTCTTAAAAGACAAAAAA
+## [2]   100 ACTGTGTCTTAAGACTCCGCCCCACAGAAGC...TGAGAAAAATGACTTTACAATAATGTTTTAG
+## [3]   100 TCTCTTTAGACGTTTGCTAACTTTCTTCAGG...GCTGTCTGTATTATACAATGTGTACTTGAAA
+## [4]   100 GAGATATAAGAGCTGAGTGGCCAGCGACCTA...CTAGTCCTGCAAGCGCCTGGGCAATAACCAC
+## [5]   100 CAGCGACCTATTGCCTAAGCATAGATATATC...CAATAACCACCTTGTCTCTCTTAGTTTGGGC
+## [6]   100 GGGGACCAAAGCCTTAAAGACGCCTCCAAGG...GAAGTCGTCCGAGGTGGAGAATCTGTGCCCA</code></pre>
+<p>As you can see, this is just a series of called bases for each read.</p>
+<p>You can also view base qualities with the <code>quality</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">quality</span>(fastq_data))</code></pre></div>
+<pre><code>## class: FastqQuality
+## quality:
+##   A BStringSet instance of length 6
+##     width seq
+## [1]   100 CCCFFFFFHHHGHIIJJJJJJJJHJJJJJJI...JJIIIGCGIJJIIIJJHHFHHHHFFFF@CDD
+## [2]   100 @@CFFDDDHDFFHBGIJGI@GHHCHJJGDGH...&gt;AAC3@&gt;&lt;BBC:@ACC&gt;@CCCDCEADCCDA?
+## [3]   100 CCCFFFFFHGHHHJJJJJJGIIJJJJJJJJJ...HHHFFF@EFFEEFFEEEDDD(-&gt;BDDEDDDD
+## [4]   100 CCCFFFFFHHHHHJJJJGIJJJJJJJJIJIJ...FFFFEE&gt;CEEEDDDDDDDDDDDDDDDDDDDD
+## [5]   100 CCCFFFFFHHHHHJJJIJJIJJJJJIJJJJJ...FEDEEEDDDDDDDDDDDDDDDDCDDDEDDBD
+## [6]   100 CCCFFFFFGHHHHJJJJJJJJJIJJJJJJJI...DDDDAC8&lt;@BDDDD0&lt;BDDDDDDDCCDDDDD</code></pre>
+<p>If the base quality scores printed by the above command look like nonsense to you, thats because they kind of are!</p>
+</div>
+<div id="base-quality-scores" class="section level3">
+<h3><span class="header-section-number">4.0.3</span> Base Quality Scores</h3>
+<p>Each base is given a quality score to indicate the probability of the base call being wrong. The probablity is scaled with the equation below to produce the <strong>Phred quality score</strong>:</p>
+<p><span class="math display">\[ Q = -10 log_{10} P \]</span></p>
+<p>And if you hate maths:</p>
+<blockquote>
+<p>“Ten times the number of zeros you need to wack in front of a 1 to get the probability”</p>
+</blockquote>
+<p>So the <strong>higher</strong> the Phred score the <strong>better</strong>!</p>
+<p>In FASTQ format the Phred quality score is then encoded by a character - there’s some odd logic to doing this but I wouldn’t sweat it, most tools will convert it back to the Phred score for you.</p>
+<p>Examples:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-21">Table 4.1: </span>Converting base quality scores.</caption>
+<thead>
+<tr class="header">
+<th align="left">Phred Quality Score</th>
+<th align="left">Probability of error</th>
+<th align="left">Base call accuracy</th>
+<th align="left">ASCII encoding</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">10</td>
+<td align="left">0.1 (1 in 10)</td>
+<td align="left">90%</td>
+<td align="left">+</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">0.01 (1 in 100)</td>
+<td align="left">99%</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">30</td>
+<td align="left">0.001 (1 in 1,000)</td>
+<td align="left">99.9%</td>
+<td align="left">?</td>
+</tr>
+<tr class="even">
+<td align="left">40</td>
+<td align="left">0.0001 (1 in 10,000)</td>
+<td align="left">99.99%</td>
+<td align="left">I</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="qc-report" class="section level3">
+<h3><span class="header-section-number">4.0.4</span> QC Report</h3>
+<p>To generate the QC metrics for all the FASTQ all you need to do is run the <code>qa</code> command on the fastq directory:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">qa_summary &lt;-<span class="st"> </span><span class="kw">qa</span>(<span class="dt">dirPath =</span> <span class="st">&quot;fastq&quot;</span>, <span class="dt">type=</span><span class="st">&quot;fastq&quot;</span>)</code></pre></div>
+<p>You can then view a report in a web-browser by running:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseURL</span>(<span class="kw">report</span>(qa_summary))</code></pre></div>
+<p>The report gives some advice about what you’d expect to see in high/poor quality data, it’s worth taking a read. There some additional common issues worth being aware of too.</p>
+<p>Common issues:</p>
+<ul>
+<li>Sequence quality degrades with increasing read length so you’ll often see a drop towards the end of reads - particularly for longer reads</li>
+<li>A temporary drop in quality in the middle of reads could indicate a run issue such as bubbles running through the flow cell</li>
+<li>Over-represented sequences - such as contaminants or spike-ins can bias base composition, GC content and duplication</li>
+<li>Base composition bias in the first ~12bp - this is often observed due to the fact that random hexamer priming isn’t really random, but doesn’t appear to have an effect downstream and can generally just be ignored.</li>
+<li>Duplication - RNA-seq libraries will often have high degrees of duplication due to highly abundant transcripts and potentially spike-ins, it’s on the whole best not to remove duplicates in RNA-seq.</li>
+</ul>
+<p>We can see one of these common issues in the report - both reads 1 and 2 show a temporary drop in quality at around cycle 80 and 45 respectively. It’s possible to mask the bases from these cycles across reads, however for the tutorial we’ll just leave them as they are.</p>
+<p>How best to address QC issues is strongly influenced by your choice of alignment tool. For instance if you see low base quality towards the ends of your reads trimming would be advisable for non-truncating aligners such as Tophat but might not be necessary for aligners such as STAR which can soft-clip unaligned sections. Tools also have differing levels of mis-match tolerance. <a href="http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html">This review</a> is a bit outdated but still worth a read.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="01.3_R_basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="01.5_alignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
