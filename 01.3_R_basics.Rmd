@@ -23,11 +23,9 @@ Theres three main pane areas here:
 
 ### Working Directory
 
-In the files window, create a new folder for the current analysis and enter it.
-
 The R session has a position in your file system - this is called the **working directory**. This is where all files will be loaded from or saved to by default.
 
-You can change the working directory by going to the **Session** menu -> **Set Working Directory** -> **Choose Directory**. This opens a file browser - choose the new folder we just made.
+You can change the working directory by going to the **Session** menu -> **Set Working Directory** -> **Choose Directory**. This opens a file browser - choose the folder we just downloaded.
 
 ### Programming languages
 
