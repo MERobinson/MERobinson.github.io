@@ -25,15 +25,15 @@
 <meta name="author" content="Mark Robinson">
 
 
-<meta name="date" content="2017-09-11">
+<meta name="date" content="2017-09-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="01.5_alignment.html">
-
+<link rel="prev" href="01.6_read_counts.html">
+<link rel="next" href="03.0_formats.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -103,12 +103,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="01.1_overview.html"><a href="01.1_overview.html"><i class="fa fa-check"></i><b>1</b> RNA-seq Overview</a><ul>
-<li class="chapter" data-level="1.0.1" data-path="01.1_overview.html"><a href="01.1_overview.html#experimental-design"><i class="fa fa-check"></i><b>1.0.1</b> Experimental Design</a></li>
+<li class="chapter" data-level="1" data-path="01.1_setup.html"><a href="01.1_setup.html"><i class="fa fa-check"></i><b>1</b> System Setup</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_setup.html"><a href="01.1_setup.html#r"><i class="fa fa-check"></i><b>1.0.1</b> R</a></li>
+<li class="chapter" data-level="1.0.2" data-path="01.1_setup.html"><a href="01.1_setup.html#rstudio"><i class="fa fa-check"></i><b>1.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.0.3" data-path="01.1_setup.html"><a href="01.1_setup.html#download-course-materials"><i class="fa fa-check"></i><b>1.0.3</b> Download Course Materials</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="01.2_setup.html"><a href="01.2_setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
-<li class="chapter" data-level="2.0.1" data-path="01.2_setup.html"><a href="01.2_setup.html#r"><i class="fa fa-check"></i><b>2.0.1</b> R</a></li>
-<li class="chapter" data-level="2.0.2" data-path="01.2_setup.html"><a href="01.2_setup.html#rstudio"><i class="fa fa-check"></i><b>2.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="2" data-path="01.2_overview.html"><a href="01.2_overview.html"><i class="fa fa-check"></i><b>2</b> RNA-seq Overview</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="01.2_overview.html"><a href="01.2_overview.html#experimental-design"><i class="fa fa-check"></i><b>2.0.1</b> Experimental Design</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
 <li class="chapter" data-level="3.0.1" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.0.1</b> RStudio Interface</a></li>
@@ -121,18 +122,29 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.0.2" data-path="01.4_qc.html"><a href="01.4_qc.html#fastq-data"><i class="fa fa-check"></i><b>4.0.2</b> FASTQ Data</a></li>
 <li class="chapter" data-level="4.0.3" data-path="01.4_qc.html"><a href="01.4_qc.html#base-quality-scores"><i class="fa fa-check"></i><b>4.0.3</b> Base Quality Scores</a></li>
 <li class="chapter" data-level="4.0.4" data-path="01.4_qc.html"><a href="01.4_qc.html#qc-report"><i class="fa fa-check"></i><b>4.0.4</b> QC Report</a></li>
+<li class="chapter" data-level="4.0.5" data-path="01.4_qc.html"><a href="01.4_qc.html#next-step"><i class="fa fa-check"></i><b>4.0.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="01.5_alignment.html"><a href="01.5_alignment.html"><i class="fa fa-check"></i><b>5</b> Read Alignment</a><ul>
-<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.1</b> Setup</a></li>
-<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.2</b> Creating Genome Index</a></li>
-<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.3</b> Aligning Reads</a></li>
+<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#current-analysis"><i class="fa fa-check"></i><b>5.0.1</b> Current Analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.2</b> Setup</a></li>
+<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.3</b> Creating Genome Index</a></li>
+<li class="chapter" data-level="5.0.4" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.4</b> Aligning Reads</a></li>
+<li class="chapter" data-level="5.0.5" data-path="01.5_alignment.html"><a href="01.5_alignment.html#output"><i class="fa fa-check"></i><b>5.0.5</b> Output</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>6</b> Resources</a><ul>
-<li class="chapter" data-level="6.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>6.0.1</b> Reviews</a></li>
-<li class="chapter" data-level="6.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>6.0.2</b> Tool papers</a></li>
-<li class="chapter" data-level="6.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>6.0.3</b> Tool websites</a></li>
-<li class="chapter" data-level="6.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>6.0.4</b> Protocols</a></li>
-<li class="chapter" data-level="6.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>6.0.5</b> Blog &amp; Forum Posts:</a></li>
+<li class="chapter" data-level="6" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html"><i class="fa fa-check"></i><b>6</b> Post-alignment</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#setup-2"><i class="fa fa-check"></i><b>6.0.1</b> Setup</a></li>
+<li class="chapter" data-level="6.0.2" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#qc"><i class="fa fa-check"></i><b>6.0.2</b> QC</a></li>
+<li class="chapter" data-level="6.0.3" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#count-reads"><i class="fa fa-check"></i><b>6.0.3</b> Count Reads</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>7</b> Resources</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>7.0.1</b> Reviews</a></li>
+<li class="chapter" data-level="7.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>7.0.2</b> Tool papers</a></li>
+<li class="chapter" data-level="7.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>7.0.3</b> Tool websites</a></li>
+<li class="chapter" data-level="7.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>7.0.4</b> Protocols</a></li>
+<li class="chapter" data-level="7.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>7.0.5</b> Blog &amp; Forum Posts:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="03.0_formats.html"><a href="03.0_formats.html"><i class="fa fa-check"></i><b>8</b> Formats</a><ul>
+<li class="chapter" data-level="8.1" data-path="03.0_formats.html"><a href="03.0_formats.html#sam-format"><i class="fa fa-check"></i><b>8.1</b> SAM Format</a></li>
 </ul></li>
 </ul>
 
@@ -152,27 +164,28 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="resources" class="section level1">
-<h1><span class="header-section-number">6</span> Resources</h1>
+<h1><span class="header-section-number">7</span> Resources</h1>
 <div id="reviews" class="section level3">
-<h3><span class="header-section-number">6.0.1</span> Reviews</h3>
+<h3><span class="header-section-number">7.0.1</span> Reviews</h3>
 <ul>
 <li><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8">RNA-seq best practices</a> - Conesa et al., 2016. <em>Genome Biology.</em></li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/26688660">Statistical methods for differential expression</a> - Huang et al. 2015. <em>Cancer Informatics.</em></li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/19015660">RNA-seq overview</a> - Wang et al., 2009. <em>Nature Reviews Genetics.</em></li>
+<li><a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4002-1">Comparison of isoform quantification tools</a> - Zhang et al., 2017. <em>BMC Genomics</em>.</li>
+<li><a href="http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html">Comparison of spliced alignment tools</a> - Engstrom et al., 2013. <em>Nature Methods</em>.</li>
 </ul>
 </div>
 <div id="tool-papers" class="section level3">
-<h3><span class="header-section-number">6.0.2</span> Tool papers</h3>
+<h3><span class="header-section-number">7.0.2</span> Tool papers</h3>
 <ul>
 <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23104886">STAR</a></li>
 <li><a href="http://www.nature.com/nbt/journal/v32/n5/full/nbt.2862.html">Sailfish</a></li>
 <li><a href="http://www.nature.com/nbt/journal/v34/n5/full/nbt.3519.html">kallisto</a></li>
 <li><a href="http://www.biorxiv.org/content/early/2015/10/03/021592">Salmon</a></li>
-<li></li>
 </ul>
 </div>
 <div id="tool-websites" class="section level3">
-<h3><span class="header-section-number">6.0.3</span> Tool websites</h3>
+<h3><span class="header-section-number">7.0.3</span> Tool websites</h3>
 <ul>
 <li><a href="https://github.com/alexdobin/STAR">STAR</a></li>
 <li><a href="http://ccb.jhu.edu/software/tophat/index.shtml">Tophat2</a></li>
@@ -183,22 +196,21 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="protocols" class="section level3">
-<h3><span class="header-section-number">6.0.4</span> Protocols</h3>
+<h3><span class="header-section-number">7.0.4</span> Protocols</h3>
 <ul>
 <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/26334920">Mapping read with STAR</a></li>
-<li></li>
 </ul>
 </div>
 <div id="blog-forum-posts" class="section level3">
-<h3><span class="header-section-number">6.0.5</span> Blog &amp; Forum Posts:</h3>
-<div id="qc" class="section level4">
-<h4><span class="header-section-number">6.0.5.1</span> QC</h4>
+<h3><span class="header-section-number">7.0.5</span> Blog &amp; Forum Posts:</h3>
+<div id="qc-1" class="section level4">
+<h4><span class="header-section-number">7.0.5.1</span> QC</h4>
 <ul>
 <li><a href="https://www.biostars.org/p/107402/">FASTQC duplication plot explanation</a></li>
 </ul>
 </div>
 <div id="aligners" class="section level4">
-<h4><span class="header-section-number">6.0.5.2</span> Aligners</h4>
+<h4><span class="header-section-number">7.0.5.2</span> Aligners</h4>
 <ul>
 <li><p><a href="https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/">Comparing alignment-free and spliced alignment algorithms</a></p>
 <blockquote>
@@ -209,8 +221,12 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </blockquote></li>
 </ul>
 </div>
+<div id="normalisation" class="section level4">
+<h4><span class="header-section-number">7.0.5.3</span> Normalisation</h4>
+<p><a href="https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/">Explanation of various normalisation methods</a></p>
+</div>
 <div id="general" class="section level4">
-<h4><span class="header-section-number">6.0.5.3</span> General</h4>
+<h4><span class="header-section-number">7.0.5.4</span> General</h4>
 <ul>
 <li><a href="https://edwards.sdsu.edu/research/fastq-dump/">Explanation of arguments for SRA-Tools fastq-dump</a></li>
 </ul>
@@ -223,8 +239,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="01.5_alignment.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="01.6_read_counts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="03.0_formats.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

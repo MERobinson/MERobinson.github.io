@@ -25,7 +25,7 @@
 <meta name="author" content="Mark Robinson">
 
 
-<meta name="date" content="2017-09-11">
+<meta name="date" content="2017-09-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="01.4_qc.html">
-<link rel="next" href="02.0_resources.html">
+<link rel="next" href="01.6_read_counts.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -103,12 +103,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="01.1_overview.html"><a href="01.1_overview.html"><i class="fa fa-check"></i><b>1</b> RNA-seq Overview</a><ul>
-<li class="chapter" data-level="1.0.1" data-path="01.1_overview.html"><a href="01.1_overview.html#experimental-design"><i class="fa fa-check"></i><b>1.0.1</b> Experimental Design</a></li>
+<li class="chapter" data-level="1" data-path="01.1_setup.html"><a href="01.1_setup.html"><i class="fa fa-check"></i><b>1</b> System Setup</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_setup.html"><a href="01.1_setup.html#r"><i class="fa fa-check"></i><b>1.0.1</b> R</a></li>
+<li class="chapter" data-level="1.0.2" data-path="01.1_setup.html"><a href="01.1_setup.html#rstudio"><i class="fa fa-check"></i><b>1.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.0.3" data-path="01.1_setup.html"><a href="01.1_setup.html#download-course-materials"><i class="fa fa-check"></i><b>1.0.3</b> Download Course Materials</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="01.2_setup.html"><a href="01.2_setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
-<li class="chapter" data-level="2.0.1" data-path="01.2_setup.html"><a href="01.2_setup.html#r"><i class="fa fa-check"></i><b>2.0.1</b> R</a></li>
-<li class="chapter" data-level="2.0.2" data-path="01.2_setup.html"><a href="01.2_setup.html#rstudio"><i class="fa fa-check"></i><b>2.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="2" data-path="01.2_overview.html"><a href="01.2_overview.html"><i class="fa fa-check"></i><b>2</b> RNA-seq Overview</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="01.2_overview.html"><a href="01.2_overview.html#experimental-design"><i class="fa fa-check"></i><b>2.0.1</b> Experimental Design</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
 <li class="chapter" data-level="3.0.1" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.0.1</b> RStudio Interface</a></li>
@@ -121,18 +122,29 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.0.2" data-path="01.4_qc.html"><a href="01.4_qc.html#fastq-data"><i class="fa fa-check"></i><b>4.0.2</b> FASTQ Data</a></li>
 <li class="chapter" data-level="4.0.3" data-path="01.4_qc.html"><a href="01.4_qc.html#base-quality-scores"><i class="fa fa-check"></i><b>4.0.3</b> Base Quality Scores</a></li>
 <li class="chapter" data-level="4.0.4" data-path="01.4_qc.html"><a href="01.4_qc.html#qc-report"><i class="fa fa-check"></i><b>4.0.4</b> QC Report</a></li>
+<li class="chapter" data-level="4.0.5" data-path="01.4_qc.html"><a href="01.4_qc.html#next-step"><i class="fa fa-check"></i><b>4.0.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="01.5_alignment.html"><a href="01.5_alignment.html"><i class="fa fa-check"></i><b>5</b> Read Alignment</a><ul>
-<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.1</b> Setup</a></li>
-<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.2</b> Creating Genome Index</a></li>
-<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.3</b> Aligning Reads</a></li>
+<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#current-analysis"><i class="fa fa-check"></i><b>5.0.1</b> Current Analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.2</b> Setup</a></li>
+<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.3</b> Creating Genome Index</a></li>
+<li class="chapter" data-level="5.0.4" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.4</b> Aligning Reads</a></li>
+<li class="chapter" data-level="5.0.5" data-path="01.5_alignment.html"><a href="01.5_alignment.html#output"><i class="fa fa-check"></i><b>5.0.5</b> Output</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>6</b> Resources</a><ul>
-<li class="chapter" data-level="6.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>6.0.1</b> Reviews</a></li>
-<li class="chapter" data-level="6.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>6.0.2</b> Tool papers</a></li>
-<li class="chapter" data-level="6.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>6.0.3</b> Tool websites</a></li>
-<li class="chapter" data-level="6.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>6.0.4</b> Protocols</a></li>
-<li class="chapter" data-level="6.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>6.0.5</b> Blog &amp; Forum Posts:</a></li>
+<li class="chapter" data-level="6" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html"><i class="fa fa-check"></i><b>6</b> Post-alignment</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#setup-2"><i class="fa fa-check"></i><b>6.0.1</b> Setup</a></li>
+<li class="chapter" data-level="6.0.2" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#qc"><i class="fa fa-check"></i><b>6.0.2</b> QC</a></li>
+<li class="chapter" data-level="6.0.3" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#count-reads"><i class="fa fa-check"></i><b>6.0.3</b> Count Reads</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>7</b> Resources</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>7.0.1</b> Reviews</a></li>
+<li class="chapter" data-level="7.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>7.0.2</b> Tool papers</a></li>
+<li class="chapter" data-level="7.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>7.0.3</b> Tool websites</a></li>
+<li class="chapter" data-level="7.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>7.0.4</b> Protocols</a></li>
+<li class="chapter" data-level="7.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>7.0.5</b> Blog &amp; Forum Posts:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="03.0_formats.html"><a href="03.0_formats.html"><i class="fa fa-check"></i><b>8</b> Formats</a><ul>
+<li class="chapter" data-level="8.1" data-path="03.0_formats.html"><a href="03.0_formats.html#sam-format"><i class="fa fa-check"></i><b>8.1</b> SAM Format</a></li>
 </ul></li>
 </ul>
 
@@ -153,17 +165,48 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="read-alignment" class="section level1">
 <h1><span class="header-section-number">5</span> Read Alignment</h1>
-<p>The traditional approach to RNA-seq analysis is to first align reads against the reference genome, then count the number of reads per gene or transcript. The major challenge in RNA-seq read alignment is accounting for splicing. There’s two main ways to approach this:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
+<img src="images/alignment_choices.gif" alt="Overview of RNA-seq analysis" width="90%" />
+<p class="caption">
+Figure 5.1: Overview of RNA-seq analysis
+</p>
+</div>
+<p>There are three main approaches to aligning reads to the genome:</p>
 <ol style="list-style-type: decimal">
-<li>If the transcriptome of interest is well annotated you can simply use a standard short read aligner to map reads directly to the transcriptome</li>
-<li>If transcriptome annotation is poor or novel splicing/transcripts are of interest it’s better to go for spliced alignment algorithms</li>
+<li>Map to the genome:
+<ul>
+<li>This is the standard traditional approach</li>
+<li>Complicated by the size of the genomes, the millions of reads sequenced &amp; polymorphism</li>
+<li>Unlike DNA-based sequence techniques RNA-seq also needs to account for splicing</li>
+<li>Identification of splice sites decreases the accuracy of mapping</li>
+<li>Allows identification of novel transcripts, mutations and gene fusions</li>
+<li>Doesn’t require</li>
+</ul></li>
+<li>Map to the transcriptome:
+<ul>
+<li>Reduces amount of sequence you need to search against significantly</li>
+<li>Eleviates issue of identifying splice sites</li>
+<li>Much faster</li>
+<li>Requires well annotated transcriptome</li>
+<li>Doesn’t allow identification of novel transcripts</li>
+</ul></li>
+<li><em>de novo</em> transcriptome assembly:
+<ul>
+<li>Attempts to reconstruct transcripts directly from short reads</li>
+<li>Doesn’t required reference genome/transcriptome</li>
+</ul></li>
 </ol>
-<p>A relatively new breed of algorithms allow alignment-free quantification of transcript abundance - and therefore tend to be much faster, and potentially <a href="https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/">more accurate</a>. The major drawback being that alignment-free prevents identification of novel transcripts, gene-fusions, mutations, etc.</p>
-<p>My personal preference currently would be to use <a href="https://github.com/alexdobin/STAR">STAR</a> for novel/fusion/mutation analyses together with <a href="https://combine-lab.github.io/salmon/">Salmon</a> or <a href="https://pachterlab.github.io/kallisto/about">Kallisto</a> for quantification.</p>
+<p>Assuming you’re working on a mammalian genome the key determining factor here is probably whether you’re interested in novel transcripts, mutations/SNPs or gene fusions.</p>
+<p>If you just want to <strong>quanitify known transcripts</strong> the best choice is likely transcriptome mapping. This is especially true since the development of the new <strong>alignment-independent</strong> algorithms. Alignment-independent or pseudo-alignment algorithms basically determine the transcript a read originates from based on sequence/kmer composition without needing to determine the exact position, making them <strong>extremely fast</strong>. Furthermore, although they’re still new and not comprehensively tested, they appear to be <a href="https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/">more accurate</a> and can normalise for differences in transcript length between samples. The <a href="http://bioconductor.org/packages/release/bioc/html/tximport.html">tximport</a> package is useful for reading results into R.</p>
+<p>Of course you aren’t restricted to using one or the other - my recommended approach would be to use a splice-aware alignment tool for transcript-discovery together with an alignment-independent tool for transcript-quantification. My current choice would be <a href="https://github.com/alexdobin/STAR">STAR</a> together with <a href="https://combine-lab.github.io/salmon/">Salmon</a>.</p>
+<p>The major drawback of STAR is that it requires a LOT of memory - you’re probably gonna need &gt;30 Gb of Ram, meaning it’s not really an option for many beginners. Another good option might be <a href="http://ccb.jhu.edu/software/hisat2/index.shtml">HISAT2</a> which largely replaces the popular but slow (and not great) <a href="http://ccb.jhu.edu/software/tophat/index.shtml">Tophat2</a>.</p>
 <p>For a list of commonly used tools see the <a href="02.0_resources.html#resources">resources</a> section.</p>
-<p>For this tutorial we’ll stick with the traditional spliced-alignment approach. We’ll be using the <a href="https://github.com/juliangehring/GMAP-GSNAP">GSNAP</a> algorithm via an R package. GSNAP is also available at the command line, and performs pretty well in <a href="http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html">comparative simulations</a>.</p>
+<div id="current-analysis" class="section level3">
+<h3><span class="header-section-number">5.0.1</span> Current Analysis</h3>
+<p>Unfortunately most of these tools aren’t available in R, and you’d need to learn a little bit of shell scripting if you wanted to use them at the command line. For now, we’ll use <a href="http://research-pub.gene.com/gmap/">GSNAP</a> - a splice-aware aligner that has an R-wrapper and performs pretty well <a href="http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html">comparative simulations</a>.</p>
+</div>
 <div id="setup-1" class="section level3">
-<h3><span class="header-section-number">5.0.1</span> Setup</h3>
+<h3><span class="header-section-number">5.0.2</span> Setup</h3>
 <p>BSgenome packages contain information on whole genomes, SNPs and sometimes masks. This specific package is for Mus musculus mm10 genome.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">suppressWarnings</span>(<span class="kw">require</span>(BSgenome.Mmusculus.UCSC.mm10))) {
   <span class="kw">source</span>(<span class="st">&quot;http://bioconductor.org/biocLite.R&quot;</span>)
@@ -184,7 +227,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 }</code></pre></div>
 </div>
 <div id="creating-genome-index" class="section level3">
-<h3><span class="header-section-number">5.0.2</span> Creating Genome Index</h3>
+<h3><span class="header-section-number">5.0.3</span> Creating Genome Index</h3>
 <p>As with most alignment tools we first need to create an index of the reference genome, for this we’re using that mm10 sequence from the BSgenome package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mm10_genome &lt;-<span class="st"> </span>BSgenome.Mmusculus.UCSC.mm10</code></pre></div>
 <p>Normally you would just use this as the genome argument in the indexing but to speed things up we need to get just the sequence of chr10 from the BSgenome object into a usable format. You don’t really need to know whats going on here just run the following commands:</p>
@@ -208,16 +251,11 @@ chr10_exons &lt;-<span class="st"> </span><span class="kw">keepSeqlevels</span>(
 <p>Ok all setup, alignment time!</p>
 </div>
 <div id="aligning-reads" class="section level3">
-<h3><span class="header-section-number">5.0.3</span> Aligning Reads</h3>
-<p>Alignment parameters are set as a simple list then passed the mapping function.</p>
-<p>There’s lots of potential parameters to tweak but lets just go through a few important ones:</p>
-<ul>
-<li>-m : the maximum penalty score allowed when mapping - for each mismatch, indel or very distant splicing, GSNAP will apply a penalty to the mapping score. This should be adjusted according to read length.</li>
-</ul>
+<h3><span class="header-section-number">5.0.4</span> Aligning Reads</h3>
+<p>Alignment parameters are set as a simple list then passed to the mapping function.</p>
+<p>Most alignment tools have lots of parameters that you can tweak to alter the default behaviour. You can (usually) find documentation for all the options on the tools website. The parameters used here basically just set some penalties for indels and distant splice sites, and tell the tool to look for novel splice sites.</p>
+<p>One important consideration when setting stringency is how polymorphic you expect your samples to be compared with the reference transcriptome, obviously mouse samples will normally have much less variation from the reference than human samples.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> gsnap_param &lt;-<span class="st"> </span><span class="kw">GsnapParam</span>(<span class="dt">genome =</span> index,
-                           <span class="dt">unique_only =</span> <span class="ot">FALSE</span>,
-                           <span class="dt">suboptimal_levels =</span> 2L,
-                           <span class="dt">npaths =</span> 10L,
                            <span class="dt">novelsplicing =</span> <span class="ot">TRUE</span>,
                            <span class="dt">splicing =</span> <span class="st">&quot;knownGene&quot;</span>,
                            <span class="dt">indel_penalty =</span> 1L,
@@ -226,12 +264,16 @@ chr10_exons &lt;-<span class="st"> </span><span class="kw">keepSeqlevels</span>(
 <p>Then we (would) just run the alignment like so:</p>
 
 <div class="rmdimportant">
-Even with just one chromosome this is still pretty slow (~25m) so rather than run it right now we’ll just load some pre-computed values.
+Even with just one chromosome this is still pretty slow (~25m) so rather than run this right now we’ll just load some pre-aligned data.
 </div>
 <p></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gsnap_output &lt;-<span class="st"> </span><span class="kw">gsnap</span>(<span class="dt">input_a =</span> fastq_files[[<span class="dv">1</span>]],
                       <span class="dt">input_b =</span> fastq_files[[<span class="dv">2</span>]],
                       <span class="dt">params =</span> gsnap_param)</code></pre></div>
+</div>
+<div id="output" class="section level3">
+<h3><span class="header-section-number">5.0.5</span> Output</h3>
+<p>Any alignment-based tools will produce as it’s main output a <strong>Sequence Alignment Map (SAM)</strong> file, or it’s <strong>binary</strong> equivalent <strong>BAM</strong>. SAM/BAM is the standard format for storing aligned short reads (and increasing unaligned reads too). See the <a href="03.0_formats.html#formats">formats</a></p>
 
 </div>
 </div>
@@ -241,7 +283,7 @@ Even with just one chromosome this is still pretty slow (~25m) so rather than ru
         </div>
       </div>
 <a href="01.4_qc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="02.0_resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="01.6_read_counts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

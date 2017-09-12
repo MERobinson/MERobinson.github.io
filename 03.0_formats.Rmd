@@ -1,0 +1,34 @@
+# Formats 
+
+## SAM Format
+
+Full documentation can be found on the [github page](https://samtools.github.io/hts-specs/).
+
+There are two sections to SAM files:
+
+1. A **Header section** - which can store various meta-information.
+    * Header lines start with an **@** symbol
+    * Optional (but highly recommended)
+    * It's good practice to store all salient information about sequencng, sample information and processing steps within the header
+    * **DO NOT** put important information only in the filename
+2. The alignment section - conatains 11 mandatory fields related to each read alignment.
+    * Note: individual reads may appear multiple times if multi-mapping
+    * Mandatory fields:
+        * QNAME - query template name (i.e. read name)
+        * FLAG - bitwise flag (explained [here](http://broadinstitute.github.io/picard/explain-flags.html))
+        * RNAME - reference sequence name (chromosome it's mapped)
+        * POS - 1-based left most mapping position (chromosome position)
+        * MAPQ - mapping quality (explained below)
+        * CIGAR - CIGAR string (explained below)
+        * RNEXT - reference name of the mate read
+        * TLEN - tempate length (length of original fragment - if PE)
+        * SEQ - segment sequence
+        * QUAL - base quality
+    * Following the mandatory fields, custom tags can be added
+
+Example - one SAM record:
+```
+HWI-D00467:267:CBF3RANXX:7:2113:10878:30427	1024	chr1	10000	0	50M	*	0 ATAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCT  /<<BBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF  MD:Z:50 PG:Z:MarkDuplicates.4 RG:Z:CBF3RANXX.7  NM:i:1	UQ:i:14	AS:i:50	XS:i:49
+```
+
+

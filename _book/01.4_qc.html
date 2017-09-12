@@ -25,7 +25,7 @@
 <meta name="author" content="Mark Robinson">
 
 
-<meta name="date" content="2017-09-11">
+<meta name="date" content="2017-09-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -103,12 +103,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="01.1_overview.html"><a href="01.1_overview.html"><i class="fa fa-check"></i><b>1</b> RNA-seq Overview</a><ul>
-<li class="chapter" data-level="1.0.1" data-path="01.1_overview.html"><a href="01.1_overview.html#experimental-design"><i class="fa fa-check"></i><b>1.0.1</b> Experimental Design</a></li>
+<li class="chapter" data-level="1" data-path="01.1_setup.html"><a href="01.1_setup.html"><i class="fa fa-check"></i><b>1</b> System Setup</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_setup.html"><a href="01.1_setup.html#r"><i class="fa fa-check"></i><b>1.0.1</b> R</a></li>
+<li class="chapter" data-level="1.0.2" data-path="01.1_setup.html"><a href="01.1_setup.html#rstudio"><i class="fa fa-check"></i><b>1.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.0.3" data-path="01.1_setup.html"><a href="01.1_setup.html#download-course-materials"><i class="fa fa-check"></i><b>1.0.3</b> Download Course Materials</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="01.2_setup.html"><a href="01.2_setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
-<li class="chapter" data-level="2.0.1" data-path="01.2_setup.html"><a href="01.2_setup.html#r"><i class="fa fa-check"></i><b>2.0.1</b> R</a></li>
-<li class="chapter" data-level="2.0.2" data-path="01.2_setup.html"><a href="01.2_setup.html#rstudio"><i class="fa fa-check"></i><b>2.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="2" data-path="01.2_overview.html"><a href="01.2_overview.html"><i class="fa fa-check"></i><b>2</b> RNA-seq Overview</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="01.2_overview.html"><a href="01.2_overview.html#experimental-design"><i class="fa fa-check"></i><b>2.0.1</b> Experimental Design</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
 <li class="chapter" data-level="3.0.1" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.0.1</b> RStudio Interface</a></li>
@@ -121,18 +122,29 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.0.2" data-path="01.4_qc.html"><a href="01.4_qc.html#fastq-data"><i class="fa fa-check"></i><b>4.0.2</b> FASTQ Data</a></li>
 <li class="chapter" data-level="4.0.3" data-path="01.4_qc.html"><a href="01.4_qc.html#base-quality-scores"><i class="fa fa-check"></i><b>4.0.3</b> Base Quality Scores</a></li>
 <li class="chapter" data-level="4.0.4" data-path="01.4_qc.html"><a href="01.4_qc.html#qc-report"><i class="fa fa-check"></i><b>4.0.4</b> QC Report</a></li>
+<li class="chapter" data-level="4.0.5" data-path="01.4_qc.html"><a href="01.4_qc.html#next-step"><i class="fa fa-check"></i><b>4.0.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="01.5_alignment.html"><a href="01.5_alignment.html"><i class="fa fa-check"></i><b>5</b> Read Alignment</a><ul>
-<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.1</b> Setup</a></li>
-<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.2</b> Creating Genome Index</a></li>
-<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.3</b> Aligning Reads</a></li>
+<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#current-analysis"><i class="fa fa-check"></i><b>5.0.1</b> Current Analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.2</b> Setup</a></li>
+<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.3</b> Creating Genome Index</a></li>
+<li class="chapter" data-level="5.0.4" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.4</b> Aligning Reads</a></li>
+<li class="chapter" data-level="5.0.5" data-path="01.5_alignment.html"><a href="01.5_alignment.html#output"><i class="fa fa-check"></i><b>5.0.5</b> Output</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>6</b> Resources</a><ul>
-<li class="chapter" data-level="6.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>6.0.1</b> Reviews</a></li>
-<li class="chapter" data-level="6.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>6.0.2</b> Tool papers</a></li>
-<li class="chapter" data-level="6.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>6.0.3</b> Tool websites</a></li>
-<li class="chapter" data-level="6.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>6.0.4</b> Protocols</a></li>
-<li class="chapter" data-level="6.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>6.0.5</b> Blog &amp; Forum Posts:</a></li>
+<li class="chapter" data-level="6" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html"><i class="fa fa-check"></i><b>6</b> Post-alignment</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#setup-2"><i class="fa fa-check"></i><b>6.0.1</b> Setup</a></li>
+<li class="chapter" data-level="6.0.2" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#qc"><i class="fa fa-check"></i><b>6.0.2</b> QC</a></li>
+<li class="chapter" data-level="6.0.3" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#count-reads"><i class="fa fa-check"></i><b>6.0.3</b> Count Reads</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>7</b> Resources</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>7.0.1</b> Reviews</a></li>
+<li class="chapter" data-level="7.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>7.0.2</b> Tool papers</a></li>
+<li class="chapter" data-level="7.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>7.0.3</b> Tool websites</a></li>
+<li class="chapter" data-level="7.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>7.0.4</b> Protocols</a></li>
+<li class="chapter" data-level="7.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>7.0.5</b> Blog &amp; Forum Posts:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="03.0_formats.html"><a href="03.0_formats.html"><i class="fa fa-check"></i><b>8</b> Formats</a><ul>
+<li class="chapter" data-level="8.1" data-path="03.0_formats.html"><a href="03.0_formats.html#sam-format"><i class="fa fa-check"></i><b>8.1</b> SAM Format</a></li>
 </ul></li>
 </ul>
 
@@ -226,7 +238,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>In FASTQ format the Phred quality score is then encoded by a character - there’s some odd logic to doing this but I wouldn’t sweat it, most tools will convert it back to the Phred score for you.</p>
 <p>Examples:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-21">Table 4.1: </span>Converting base quality scores.</caption>
+<caption><span id="tab:unnamed-chunk-23">Table 4.1: </span>Converting base quality scores.</caption>
 <thead>
 <tr class="header">
 <th align="left">Phred Quality Score</th>
@@ -279,7 +291,11 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li>Duplication - RNA-seq libraries will often have high degrees of duplication due to highly abundant transcripts and potentially spike-ins, it’s on the whole best not to remove duplicates in RNA-seq.</li>
 </ul>
 <p>We can see one of these common issues in the report - both reads 1 and 2 show a temporary drop in quality at around cycle 80 and 45 respectively. It’s possible to mask the bases from these cycles across reads, however for the tutorial we’ll just leave them as they are.</p>
-<p>How best to address QC issues is strongly influenced by your choice of alignment tool. For instance if you see low base quality towards the ends of your reads trimming would be advisable for non-truncating aligners such as Tophat but might not be necessary for aligners such as STAR which can soft-clip unaligned sections. Tools also have differing levels of mis-match tolerance. <a href="http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html">This review</a> is a bit outdated but still worth a read.</p>
+</div>
+<div id="next-step" class="section level3">
+<h3><span class="header-section-number">4.0.5</span> Next Step</h3>
+<p>How best to address QC issues is strongly influenced by your choice of alignment tool. For instance if you see low base quality towards the ends of your reads trimming would be advisable for non-truncating tools such as Tophat but might not be necessary for aligners such as STAR which can soft-clip unaligned sections. Tools also have differing levels of mis-match tolerance. <a href="http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html">This review</a> is a bit outdated but still worth a read.</p>
+<p>If you’re happy with the quality of the raw reads the next step is to determine which gene/transcript each short read originated from.</p>
 
 </div>
 </div>

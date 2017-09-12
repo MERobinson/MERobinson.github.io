@@ -5,6 +5,8 @@
 * [RNA-seq best practices](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8) - Conesa et al., 2016. *Genome Biology.*
 * [Statistical methods for differential expression](https://www.ncbi.nlm.nih.gov/pubmed/26688660) - Huang et al. 2015. *Cancer Informatics.*
 * [RNA-seq overview](https://www.ncbi.nlm.nih.gov/pubmed/19015660) - Wang et al., 2009. *Nature Reviews Genetics.*
+* [Comparison of isoform quantification tools](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4002-1) - Zhang et al., 2017. *BMC Genomics*.
+* [Comparison of spliced alignment tools](http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html) - Engstrom et al., 2013. *Nature Methods*.
 
 ### Tool papers
 
@@ -12,7 +14,6 @@
 * [Sailfish](http://www.nature.com/nbt/journal/v32/n5/full/nbt.2862.html)
 * [kallisto](http://www.nature.com/nbt/journal/v34/n5/full/nbt.3519.html)
 * [Salmon](http://www.biorxiv.org/content/early/2015/10/03/021592)
-* 
 
 ### Tool websites
 
@@ -26,7 +27,6 @@
 ### Protocols
 
 * [Mapping read with STAR](https://www.ncbi.nlm.nih.gov/pubmed/26334920)
-* 
 
 ### Blog & Forum Posts:
 
@@ -42,6 +42,9 @@
 
     > From these simulations, it appears to be far better to use alignment-independent counting and aggregate to the gene level. 
 
+#### Normalisation
+
+[Explanation of various normalisation methods](https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/)
 
 #### General
 

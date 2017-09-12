@@ -138,4 +138,8 @@ Common issues:
 
 We can see one of these common issues in the report - both reads 1 and 2 show a temporary drop in quality at around cycle 80 and 45 respectively. It's possible to mask the bases from these cycles across reads, however for the tutorial we'll just leave them as they are.
 
-How best to address QC issues is strongly influenced by your choice of alignment tool. For instance if you see low base quality towards the ends of your reads trimming would be advisable for non-truncating aligners such as Tophat but might not be necessary for aligners such as STAR which can soft-clip unaligned sections. Tools also have differing levels of mis-match tolerance. [This review](http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html) is a bit outdated but still worth a read.
+### Next Step
+
+How best to address QC issues is strongly influenced by your choice of alignment tool. For instance if you see low base quality towards the ends of your reads trimming would be advisable for non-truncating tools such as Tophat but might not be necessary for aligners such as STAR which can soft-clip unaligned sections. Tools also have differing levels of mis-match tolerance. [This review](http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html) is a bit outdated but still worth a read.
+
+If you're happy with the quality of the raw reads the next step is to determine which gene/transcript each short read originated from.

@@ -25,14 +25,14 @@
 <meta name="author" content="Mark Robinson">
 
 
-<meta name="date" content="2017-09-11">
+<meta name="date" content="2017-09-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="01.2_setup.html">
+<link rel="prev" href="01.2_overview.html">
 <link rel="next" href="01.4_qc.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -103,12 +103,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="01.1_overview.html"><a href="01.1_overview.html"><i class="fa fa-check"></i><b>1</b> RNA-seq Overview</a><ul>
-<li class="chapter" data-level="1.0.1" data-path="01.1_overview.html"><a href="01.1_overview.html#experimental-design"><i class="fa fa-check"></i><b>1.0.1</b> Experimental Design</a></li>
+<li class="chapter" data-level="1" data-path="01.1_setup.html"><a href="01.1_setup.html"><i class="fa fa-check"></i><b>1</b> System Setup</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="01.1_setup.html"><a href="01.1_setup.html#r"><i class="fa fa-check"></i><b>1.0.1</b> R</a></li>
+<li class="chapter" data-level="1.0.2" data-path="01.1_setup.html"><a href="01.1_setup.html#rstudio"><i class="fa fa-check"></i><b>1.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.0.3" data-path="01.1_setup.html"><a href="01.1_setup.html#download-course-materials"><i class="fa fa-check"></i><b>1.0.3</b> Download Course Materials</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="01.2_setup.html"><a href="01.2_setup.html"><i class="fa fa-check"></i><b>2</b> System Setup</a><ul>
-<li class="chapter" data-level="2.0.1" data-path="01.2_setup.html"><a href="01.2_setup.html#r"><i class="fa fa-check"></i><b>2.0.1</b> R</a></li>
-<li class="chapter" data-level="2.0.2" data-path="01.2_setup.html"><a href="01.2_setup.html#rstudio"><i class="fa fa-check"></i><b>2.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="2" data-path="01.2_overview.html"><a href="01.2_overview.html"><i class="fa fa-check"></i><b>2</b> RNA-seq Overview</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="01.2_overview.html"><a href="01.2_overview.html#experimental-design"><i class="fa fa-check"></i><b>2.0.1</b> Experimental Design</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
 <li class="chapter" data-level="3.0.1" data-path="01.3_R_basics.html"><a href="01.3_R_basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.0.1</b> RStudio Interface</a></li>
@@ -121,18 +122,29 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.0.2" data-path="01.4_qc.html"><a href="01.4_qc.html#fastq-data"><i class="fa fa-check"></i><b>4.0.2</b> FASTQ Data</a></li>
 <li class="chapter" data-level="4.0.3" data-path="01.4_qc.html"><a href="01.4_qc.html#base-quality-scores"><i class="fa fa-check"></i><b>4.0.3</b> Base Quality Scores</a></li>
 <li class="chapter" data-level="4.0.4" data-path="01.4_qc.html"><a href="01.4_qc.html#qc-report"><i class="fa fa-check"></i><b>4.0.4</b> QC Report</a></li>
+<li class="chapter" data-level="4.0.5" data-path="01.4_qc.html"><a href="01.4_qc.html#next-step"><i class="fa fa-check"></i><b>4.0.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="01.5_alignment.html"><a href="01.5_alignment.html"><i class="fa fa-check"></i><b>5</b> Read Alignment</a><ul>
-<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.1</b> Setup</a></li>
-<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.2</b> Creating Genome Index</a></li>
-<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.3</b> Aligning Reads</a></li>
+<li class="chapter" data-level="5.0.1" data-path="01.5_alignment.html"><a href="01.5_alignment.html#current-analysis"><i class="fa fa-check"></i><b>5.0.1</b> Current Analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="01.5_alignment.html"><a href="01.5_alignment.html#setup-1"><i class="fa fa-check"></i><b>5.0.2</b> Setup</a></li>
+<li class="chapter" data-level="5.0.3" data-path="01.5_alignment.html"><a href="01.5_alignment.html#creating-genome-index"><i class="fa fa-check"></i><b>5.0.3</b> Creating Genome Index</a></li>
+<li class="chapter" data-level="5.0.4" data-path="01.5_alignment.html"><a href="01.5_alignment.html#aligning-reads"><i class="fa fa-check"></i><b>5.0.4</b> Aligning Reads</a></li>
+<li class="chapter" data-level="5.0.5" data-path="01.5_alignment.html"><a href="01.5_alignment.html#output"><i class="fa fa-check"></i><b>5.0.5</b> Output</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>6</b> Resources</a><ul>
-<li class="chapter" data-level="6.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>6.0.1</b> Reviews</a></li>
-<li class="chapter" data-level="6.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>6.0.2</b> Tool papers</a></li>
-<li class="chapter" data-level="6.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>6.0.3</b> Tool websites</a></li>
-<li class="chapter" data-level="6.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>6.0.4</b> Protocols</a></li>
-<li class="chapter" data-level="6.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>6.0.5</b> Blog &amp; Forum Posts:</a></li>
+<li class="chapter" data-level="6" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html"><i class="fa fa-check"></i><b>6</b> Post-alignment</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#setup-2"><i class="fa fa-check"></i><b>6.0.1</b> Setup</a></li>
+<li class="chapter" data-level="6.0.2" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#qc"><i class="fa fa-check"></i><b>6.0.2</b> QC</a></li>
+<li class="chapter" data-level="6.0.3" data-path="01.6_read_counts.html"><a href="01.6_read_counts.html#count-reads"><i class="fa fa-check"></i><b>6.0.3</b> Count Reads</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="02.0_resources.html"><a href="02.0_resources.html"><i class="fa fa-check"></i><b>7</b> Resources</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="02.0_resources.html"><a href="02.0_resources.html#reviews"><i class="fa fa-check"></i><b>7.0.1</b> Reviews</a></li>
+<li class="chapter" data-level="7.0.2" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-papers"><i class="fa fa-check"></i><b>7.0.2</b> Tool papers</a></li>
+<li class="chapter" data-level="7.0.3" data-path="02.0_resources.html"><a href="02.0_resources.html#tool-websites"><i class="fa fa-check"></i><b>7.0.3</b> Tool websites</a></li>
+<li class="chapter" data-level="7.0.4" data-path="02.0_resources.html"><a href="02.0_resources.html#protocols"><i class="fa fa-check"></i><b>7.0.4</b> Protocols</a></li>
+<li class="chapter" data-level="7.0.5" data-path="02.0_resources.html"><a href="02.0_resources.html#blog-forum-posts"><i class="fa fa-check"></i><b>7.0.5</b> Blog &amp; Forum Posts:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="03.0_formats.html"><a href="03.0_formats.html"><i class="fa fa-check"></i><b>8</b> Formats</a><ul>
+<li class="chapter" data-level="8.1" data-path="03.0_formats.html"><a href="03.0_formats.html#sam-format"><i class="fa fa-check"></i><b>8.1</b> SAM Format</a></li>
 </ul></li>
 </ul>
 
@@ -157,10 +169,10 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div id="rstudio-interface" class="section level3">
 <h3><span class="header-section-number">3.0.1</span> RStudio Interface</h3>
 <p>Firstly, open RStudio from your applications. The RStudio interface should look something like this:</p>
-<div class="figure" style="text-align: center">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/rstudio_interface.png" alt="The RStudio interface" width="90%" />
 <p class="caption">
-(#fig:rstudio_interface)The RStudio interface
+Figure 3.1: The RStudio interface
 </p>
 </div>
 <p>Theres three main pane areas here:</p>
@@ -187,11 +199,11 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>Coding is essentially just passing commands to your computer. Commands are written in one of many <strong>programming languages</strong> which can then be translated into a machine-readable format.</p>
 <p>Many programming languages exist and which is best to use depends on the task. Some common languages in bioinformatics are:</p>
 <ul>
-<li>Bash : Bash (and other shell scripting languages) are used to interact with the main console/terminal - often refered to as the command line. It’s simple and pretty much essential to know to let you perform basic tasks like moving files and running programs at the command line.</li>
-<li>R : R is a slightly unusual language as it was developed by statisticians not programmers but this does mean it’s well equipped for performing statistical analyses.</li>
-<li>C : C was one of the first major programming languages and still one of the most widely used in the programming world, however it’s less abstracted than many, and therefore more difficult to write but faster to run. Good for serious algorithm-development but probably less use for the average applied bioinformatician.</li>
-<li>Python : Python is a good in between - fast enough to write some of your own quick programs but easy enough to write to use in standard downstream analysis too. Python is one of the most popular languages in bioinformatics.</li>
-<li>Perl : similar to python in it’s level of abstraction but maybe falling out of fashion a bit.</li>
+<li><strong>Bash</strong> : Bash (and other shell scripting languages) are used to interact with the main console/terminal - often refered to as the command line. It’s simple and pretty much essential to know to let you perform basic tasks like moving files and running programs at the command line.</li>
+<li><strong>R</strong> : R is a slightly unusual language as it was developed by statisticians not programmers but this does mean it’s well equipped for performing statistical analyses.</li>
+<li><strong>C</strong> : C was one of the first major programming languages and still one of the most widely used in the programming world, however it’s less abstracted than many, and therefore more difficult to write but faster to run. Good for serious algorithm-development but probably less use for the average applied bioinformatician.</li>
+<li><strong>Python</strong> : Python is a good in between - fast enough to write some of your own quick programs but easy enough to write to use in standard downstream analysis too. Python is one of the most popular languages in bioinformatics.</li>
+<li><strong>Perl</strong> : similar to python in it’s level of abstraction but maybe falling out of fashion a bit.</li>
 </ul>
 <p>Here we’ll be doing everything in R just to make it easier, but if anyones actually planning on doing their own analyses I’d recommend learning some basic Bash also - I’ll add some links to the <a href="02.0_resources.html#resources">resources</a> page.</p>
 </div>
@@ -220,7 +232,7 @@ freddie &lt;-<span class="st"> </span><span class="dv">2</span> *<span class="st
 <p>You can use the values stored in variables inside operations:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freddie &lt;-<span class="st"> </span>freddie /<span class="st"> </span><span class="dv">2</span></code></pre></div>
 <p>The stored data doesn’t need to be numeric - for instance we could store a list of words:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">animal_noises &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;moo&quot;</span>,<span class="st">&quot;baa&quot;</span>,<span class="st">&quot;quack&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_favourite_reptiles &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;croc&quot;</span>,<span class="st">&quot;gator&quot;</span>,<span class="st">&quot;KOMODO DRAGON!&quot;</span>)</code></pre></div>
 </div>
 <div id="functions-arguments" class="section level4">
 <h4><span class="header-section-number">3.0.4.2</span> Functions &amp; Arguments</h4>
@@ -229,7 +241,8 @@ freddie &lt;-<span class="st"> </span><span class="dv">2</span> *<span class="st
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris</code></pre></div>
 <p>This should have printed 150 lines of data to your console, but that’s a bit more information than we really wanted. It would be useful to look just at the first few lines, luckily there’s a function for that! try using the <strong>head</strong> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris)</code></pre></div>
-<p>Sweet! There’s lots of functions out there but you always call them in the same way - by typing the function name followed by curly brackets/parantheses.</p>
+<p>Sweet!</p>
+<p>There’s lots of functions out there but you always call them in the same way - by typing the function name followed by curly brackets/parantheses.</p>
 <p>The things you put inside the brackets are called <strong>arguments</strong> - for instance in the last call to head we gave one argument - the iris object.</p>
 <p>Every function has different arguments, some <strong>required</strong> and some <strong>optional</strong>. To find out what arguments a function wants you can look at the help page for that function by typing a question mark in front of the function name:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?head</code></pre></div>
@@ -246,7 +259,7 @@ freddie &lt;-<span class="st"> </span><span class="dv">2</span> *<span class="st
           </div>
         </div>
       </div>
-<a href="01.2_setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="01.2_overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="01.4_qc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

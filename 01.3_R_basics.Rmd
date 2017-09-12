@@ -7,7 +7,7 @@ To run analyses in R you're going to need to know a few basic concepts about scr
 
 Firstly, open RStudio from your applications. The RStudio interface should look something like this:
 
-```{r rstudio_interface, fig.cap='The RStudio interface', out.width='90%', fig.asp=1, fig.align='center', echo=F}
+```{r, fig.cap='The RStudio interface', out.width='90%', fig.asp=1, fig.align='center', echo=F}
 knitr::include_graphics("images/rstudio_interface.png")
 ```
 
@@ -35,11 +35,11 @@ Coding is essentially just passing commands to your computer. Commands are writt
 
 Many programming languages exist and which is best to use depends on the task. Some common languages in bioinformatics are:
 
-* Bash : Bash (and other shell scripting languages) are used to interact with the main console/terminal - often refered to as the command line. It's simple and pretty much essential to know to let you perform basic tasks like moving files and running programs at the command line.
-* R : R is a slightly unusual language as it was developed by statisticians not programmers but this does mean it's well equipped for performing statistical analyses.
-* C : C was one of the first major programming languages and still one of the most widely used in the programming world, however it's less abstracted than many, and therefore more difficult to write but faster to run. Good for serious algorithm-development but probably less use for the average applied bioinformatician.
-* Python : Python is a good in between - fast enough to write some of your own quick programs but easy enough to write to use in standard downstream analysis too. Python is one of the most popular languages in bioinformatics.
-* Perl : similar to python in it's level of abstraction but maybe falling out of fashion a bit.
+* **Bash** : Bash (and other shell scripting languages) are used to interact with the main console/terminal - often refered to as the command line. It's simple and pretty much essential to know to let you perform basic tasks like moving files and running programs at the command line.
+* **R** : R is a slightly unusual language as it was developed by statisticians not programmers but this does mean it's well equipped for performing statistical analyses.
+* **C** : C was one of the first major programming languages and still one of the most widely used in the programming world, however it's less abstracted than many, and therefore more difficult to write but faster to run. Good for serious algorithm-development but probably less use for the average applied bioinformatician.
+* **Python** : Python is a good in between - fast enough to write some of your own quick programs but easy enough to write to use in standard downstream analysis too. Python is one of the most popular languages in bioinformatics.
+* **Perl** : similar to python in it's level of abstraction but maybe falling out of fashion a bit.
 
 Here we'll be doing everything in R just to make it easier, but if anyones actually planning on doing their own analyses I'd recommend learning some basic Bash also - I'll add some links to the [resources] page.
 
@@ -85,7 +85,7 @@ freddie <- freddie / 2
 The stored data doesn't need to be numeric - for instance we could store a list of words:
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
-animal_noises <- list("moo","baa","quack")
+my_favourite_reptiles <- list("croc","gator","KOMODO DRAGON!")
 ```
 
 
@@ -105,7 +105,9 @@ This should have printed 150 lines of data to your console, but that's a bit mor
 head(iris)
 ```
 
-Sweet! There's lots of functions out there but you always call them in the same way - by typing the function name followed by curly brackets/parantheses. 
+Sweet! 
+
+There's lots of functions out there but you always call them in the same way - by typing the function name followed by curly brackets/parantheses. 
 
 The things you put inside the brackets are called **arguments** - for instance in the last call to head we gave one argument - the iris object. 
 

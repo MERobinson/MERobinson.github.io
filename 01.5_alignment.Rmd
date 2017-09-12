@@ -1,18 +1,42 @@
 
 # Read Alignment
 
-The traditional approach to RNA-seq analysis is to first align reads against the reference genome, then count the number of reads per gene or transcript. The major challenge in RNA-seq read alignment is accounting for splicing. There's two main ways to approach this:
+```{r, fig.cap='Overview of RNA-seq analysis', out.width='90%', fig.asp=1, fig.align='center', echo=F}
+knitr::include_graphics("images/alignment_choices.gif")
+```
 
-1. If the transcriptome of interest is well annotated you can simply use a standard short read aligner to map reads directly to the transcriptome
-2. If transcriptome annotation is poor or novel splicing/transcripts are of interest it's better to go for spliced alignment algorithms
+There are three main approaches to aligning reads to the genome:
 
-A relatively new breed of algorithms allow alignment-free quantification of transcript abundance - and therefore tend to be much faster, and potentially [more accurate](https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/). The major drawback being that alignment-free prevents identification of novel transcripts, gene-fusions, mutations, etc. 
+1. Map to the genome: 
+    * This is the standard traditional approach 
+    * Complicated by the size of the genomes, the millions of reads sequenced & polymorphism
+    * Unlike DNA-based sequence techniques RNA-seq also needs to account for splicing
+    * Identification of splice sites decreases the accuracy of mapping
+    * Allows identification of novel transcripts, mutations and gene fusions
+    * Doesn't require 
+2. Map to the transcriptome:
+    * Reduces amount of sequence you need to search against significantly
+    * Eleviates issue of identifying splice sites
+    * Much faster
+    * Requires well annotated transcriptome
+    * Doesn't allow identification of novel transcripts
+3. *de novo* transcriptome assembly:
+    * Attempts to reconstruct transcripts directly from short reads
+    * Doesn't required reference genome/transcriptome
 
-My personal preference currently would be to use [STAR](https://github.com/alexdobin/STAR) for novel/fusion/mutation analyses together with [Salmon](https://combine-lab.github.io/salmon/) or [Kallisto](https://pachterlab.github.io/kallisto/about) for quantification.
+Assuming you're working on a mammalian genome the key determining factor here is probably whether you're interested in novel transcripts, mutations/SNPs or gene fusions. 
+
+If you just want to **quanitify known transcripts** the best choice is likely transcriptome mapping. This is especially true since the development of the new **alignment-independent** algorithms. Alignment-independent or pseudo-alignment algorithms basically determine the transcript a read originates from based on sequence/kmer composition without needing to determine the exact position, making them **extremely fast**. Furthermore, although they're still new and not comprehensively tested, they appear to be [more accurate](https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/) and can normalise for differences in transcript length between samples. The [tximport](http://bioconductor.org/packages/release/bioc/html/tximport.html) package is useful for reading results into R.
+
+Of course you aren't restricted to using one or the other - my recommended approach would be to use a splice-aware alignment tool for transcript-discovery together with an alignment-independent tool for transcript-quantification. My current choice would be [STAR](https://github.com/alexdobin/STAR) together with [Salmon](https://combine-lab.github.io/salmon/). 
+
+The major drawback of STAR is that it requires a LOT of memory - you're probably gonna need >30 Gb of Ram, meaning it's not really an option for many beginners. Another good option might be [HISAT2](http://ccb.jhu.edu/software/hisat2/index.shtml) which largely replaces the popular but slow (and not great) [Tophat2](http://ccb.jhu.edu/software/tophat/index.shtml). 
 
 For a list of commonly used tools see the [resources] section.
 
-For this tutorial we'll stick with the traditional spliced-alignment approach. We'll be using the [GSNAP](http://research-pub.gene.com/gmap/) algorithm via an R package. GSNAP is also available at the command line, and performs pretty well in [comparative simulations](http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html).
+### Current Analysis
+
+Unfortunately most of these tools aren't available in R, and you'd need to learn a little bit of shell scripting if you wanted to use them at the command line. For now, we'll use [GSNAP](http://research-pub.gene.com/gmap/) - a splice-aware aligner that has an R-wrapper and performs pretty well [comparative simulations](http://www.nature.com/nmeth/journal/v10/n12/full/nmeth.2722.html).
 
 ### Setup
 
@@ -93,13 +117,12 @@ Ok all setup, alignment time!
 
 Alignment parameters are set as a simple list then passed to the mapping function.
 
-Most alignment tools have lots of parameters that you can tweak to alter the default behaviour. You can (usually) find documentation for all the options on the tools website. These parameters basically just set some penalties for indels and distant splice sites, and tell the tool to look for novel splicing.
+Most alignment tools have lots of parameters that you can tweak to alter the default behaviour. You can (usually) find documentation for all the options on the tools website. The parameters used here basically just set some penalties for indels and distant splice sites, and tell the tool to look for novel splice sites.
+
+One important consideration when setting stringency is how polymorphic you expect your samples to be compared with the reference transcriptome, obviously mouse samples will normally have much less variation from the reference than human samples.
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
  gsnap_param <- GsnapParam(genome = index,
-                           unique_only = FALSE,
-                           suboptimal_levels = 2L,
-                           npaths = 10L,
                            novelsplicing = TRUE,
                            splicing = "knownGene",
                            indel_penalty = 1L,
@@ -110,7 +133,7 @@ Most alignment tools have lots of parameters that you can tweak to alter the def
 Then we (would) just run the alignment like so:
 
 ```{block2, type='rmdimportant'}
-Even with just one chromosome this is still pretty slow (~25m) so rather than run it right now we'll just load some pre-aligned data.
+Even with just one chromosome this is still pretty slow (~25m) so rather than run this right now we'll just load some pre-aligned data.
 ```
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
@@ -118,3 +141,7 @@ gsnap_output <- gsnap(input_a = fastq_files[[1]],
                       input_b = fastq_files[[2]],
                       params = gsnap_param)
 ```
+
+### Output
+
+Any alignment-based tools will produce as it's main output a **Sequence Alignment Map (SAM)** file, or it's **binary** equivalent **BAM**. SAM/BAM is the standard format for storing aligned short reads (and increasing unaligned reads too). See the [formats]
